@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mobilizr</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Link to our external stylesheet -->
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body class="text-gray-900">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md fixed top-0 left-0 w-full px-8 py-4 flex justify-between items-center z-50">
+    <img src="assets/logo.png" alt="Mobilizr Logo" class="h-10" />
+    <div class="hidden md:flex space-x-6">
+      <a href="#hero" class="text-gray-600 hover:text-black transition duration-300">Home</a>
+      <a href="#features" class="text-gray-600 hover:text-black transition duration-300">Features</a>
+      <a href="#contact" class="text-gray-600 hover:text-black transition duration-300">Contact</a>
+    </div>
+    <button class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition duration-300">
+      Get Started
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <header
+    id="hero"
+    class="relative h-screen flex flex-col items-center justify-center text-center px-4 z-0"
+    style="margin-bottom:-5rem;"
+  >
+    <!-- Negative margin bottom ensures the next section peeks up -->
+    <h1 class="text-5xl font-bold mb-4 text-white">
+      Global workforce insights with Mobilizr
+    </h1>
+    <p class="text-lg text-white opacity-80 mb-6">
+      The AI-powered way to navigate workforce migration.
+    </p>
+    <button class="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition duration-300">
+      Learn More
+    </button>
+  </header>
+
+  <!-- Features Section (pulled up by a positive margin-top) -->
+  <section
+    id="features"
+    class="min-h-screen flex items-center justify-center text-center px-6 fade-in"
+    style="margin-top: 5rem;"
+  >
+    <div class="content-box">
+      <h2 class="text-4xl font-bold text-gray-900">
+        Powerful AI for Workforce Migration
+      </h2>
+      <p class="text-lg text-gray-600 mt-4">
+        Mobilizr helps businesses navigate migration challenges effortlessly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Second Section -->
+  <section class="min-h-screen flex items-center justify-center text-center px-6 fade-in">
+    <div class="content-box">
+      <h2 class="text-4xl font-bold text-gray-900">Real-time Insights & Analytics</h2>
+      <p class="text-lg text-gray-600 mt-4">
+        Make data-driven decisions with our intelligent dashboard.
+      </p>
+    </div>
+  </section>
+
+  <!-- Third Section -->
+  <section class="min-h-screen flex items-center justify-center text-center px-6 fade-in">
+    <div class="content-box">
+      <h2 class="text-4xl font-bold text-gray-900">Seamless Integration</h2>
+      <p class="text-lg text-gray-600 mt-4">
+        Easily integrate with your existing systems for a frictionless experience.
+      </p>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section
+    id="contact"
+    class="h-screen flex items-center justify-center text-center px-6 fade-in"
+  >
+    <div class="content-box">
+      <h2 class="text-4xl font-bold text-gray-900">
+        Ready to Transform Workforce Migration?
+      </h2>
+      <button class="bg-black text-white px-6 py-3 mt-6 rounded-full hover:bg-gray-800 transition duration-300">
+        Get Started
+      </button>
+    </div>
+  </section>
+
+  <!-- IntersectionObserver + Smooth Scroll -->
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>

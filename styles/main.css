@@ -1,0 +1,103 @@
+/****************************************
+  1. Basic Reset & Body Fallback
+****************************************/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c6b7b7; /* Fallback if Tailwind fails */
+    color: #333;
+  }
+  
+  /****************************************
+    2. Navbar Styling
+  ****************************************/
+  nav a {
+    color: rgb(117, 98, 98);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: black;
+  }
+  
+  /****************************************
+    3. Off-white Content Boxes
+  ****************************************/
+  .content-box {
+    /* If you want them to show immediately: */
+    opacity: 1;
+    transform: translateY(0); /* or no transform at all */
+    transition: none;        /* or keep a transition for any hover effect, etc. */
+    
+    /* ... plus your other properties: */
+    background: #f8f8f2;
+    border-radius: 20px;
+    padding: 40px;
+    width: 90vw;
+    max-width: 1200px;
+    min-height: 80vh;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  
+  /****************************************
+    4. Fade-in Class (Activated by JS)
+  ****************************************/
+  .fade-in {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    /* Use a slightly longer duration and a custom cubic-bezier */
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  
+  
+
+  
+  /* .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  } */
+  
+  /****************************************
+    5. Gradient Background Animation
+  ****************************************/
+  @keyframes gradientFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  body {
+    background: linear-gradient(45deg,
+      #ffe180, /* Soft Sunrise Yellow */
+      #ff8765, /* Warm Peach */
+      #ffcff1, /* Light Lavender */
+      #8365ca  /* Subtle Deep Purple */
+
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 10s ease-in-out infinite;
+
+  }
+  
+  /****************************************
+    6. Responsive Content Box
+  ****************************************/
+  @media (max-width: 768px) {
+    .content-box {
+      width: 100%;       /* Slightly wider on mobile, but still see gradient edges */
+      min-height: auto; /* Let height shrink if needed */
+    }
+  }
+  
