@@ -11,6 +11,8 @@
   <!-- Link to the same main.css that contains your global gradient/animations -->
   <link rel="stylesheet" href="styles/main.css" />
 </head>
+
+
 <body class="text-gray-900">
   <!-- Navbar -->
   <nav class="bg-white shadow-md fixed top-0 left-0 w-full px-8 py-4 flex justify-between items-center z-50">
@@ -31,8 +33,8 @@
     No inline background styles here; 
     the gradient comes from main.css (body { ... }).
   -->
-  <main class="pt-24 min-h-screen">
-  <!-- 1) The Team (Photos) - Updated for extra breathing room and personality -->
+<main class="pt-24 min-h-screen">
+  <!-- 1) The Team -->
 <section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
     <div class="content-box bg-white shadow-xl rounded-3xl p-12">
       <!-- Main Heading -->
@@ -40,66 +42,87 @@
         The Team Building the Future of Workforce Mobility
       </h2>
   
-      <!-- Team Images Grid with extra top margin for breathing space -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-9">
-        <!-- OLIVER (pastel lime) -->
+    <!-- Team Images Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-9">
+       
+        <!-- OLIVER (pastel yellow) -->
         <div class="text-center">
-          <img 
-            src="assets/team/oliver.png" 
-            alt="Oliver Jones" 
-            class="w-48 h-48 rounded-full mx-auto mb-4 object-cover ring-8 ring-yellow-200 shadow-lg"
-          />
-          <h3 class="text-xl font-semibold text-gray-800">Oliver Jones</h3>
-          <p class="text-gray-600 mt-2 leading-relaxed">
+        <div class="relative group transition-transform duration-300 hover:scale-105">
+            <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank">
+            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-yellow-200">
+                <img src="assets/team/oliver.png" alt="Oliver Jones" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="bg-yellow-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
+            </div>
+            </a>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800">Oliver Jones</h3>
+        <p class="text-gray-600 mt-2 leading-relaxed">
             4+ years as Product Manager<br>
             BA Computer Science<br>
             MSc Entrepreneurship
-          </p>
+        </p>
         </div>
-  
+    
         <!-- IBRAHIM (pastel purple) -->
         <div class="text-center">
-          <img 
-            src="assets/team/ibrahim.png" 
-            alt="Ibrahim Diem" 
-            class="w-48 h-48 rounded-full mx-auto mb-4 object-cover ring-8 ring-purple-200 shadow-lg"
-          />
-          <h3 class="text-xl font-semibold text-gray-800">Ibrahim Diem</h3>
-          <p class="text-gray-600 mt-2 leading-relaxed">
+        <div class="relative group transition-transform duration-300 hover:scale-105">
+            <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank">
+            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-purple-200">
+                <img src="assets/team/ibrahim.png" alt="Ibrahim Diem" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="bg-purple-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
+            </div>
+            </a>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800">Ibrahim Diem</h3>
+        <p class="text-gray-600 mt-2 leading-relaxed">
             2+ years start-up work<br>
             BA Business & Economics<br>
             MSc Health Economics
-          </p>
+        </p>
         </div>
-  
+    
         <!-- ELLA (pastel blue) -->
         <div class="text-center">
-          <img 
-            src="assets/team/ella.png" 
-            alt="Ella Karlsson" 
-            class="w-48 h-48 rounded-full mx-auto mb-4 object-cover ring-8 ring-blue-200 shadow-lg"
-          />
-          <h3 class="text-xl font-semibold text-gray-800">Ella Karlsson</h3>
-          <p class="text-gray-600 mt-2 leading-relaxed">
+        <div class="relative group transition-transform duration-300 hover:scale-105">
+            <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank">
+            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-blue-200">
+                <img src="assets/team/ella.png" alt="Ella Karlsson" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="bg-blue-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
+            </div>
+            </a>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800">Ella Karlsson</h3>
+        <p class="text-gray-600 mt-2 leading-relaxed">
             3rd year Industrial Engineering & Management<br>
             Computer Science & Machine Learning
-          </p>
+        </p>
         </div>
   
         <!-- PHILIP (pastel pink) -->
         <div class="text-center">
-          <img 
-            src="assets/team/philip.png" 
-            alt="Philip Rask" 
-            class="w-48 h-48 rounded-full mx-auto mb-4 object-cover ring-8 ring-pink-200 shadow-lg"
-          />
-          <h3 class="text-xl font-semibold text-gray-800">Philip Rask</h3>
-          <p class="text-gray-600 mt-2 leading-relaxed">
+        <div class="relative group transition-transform duration-300 hover:scale-105">
+            <a href="https://www.linkedin.com/in/philip-rask-0b75a016b/" target="_blank">
+            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-pink-200">
+                <img src="assets/team/philip.png" alt="Philip Rask" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="bg-pink-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
+            </div>
+            </a>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800">Philip Rask</h3>
+        <p class="text-gray-600 mt-2 leading-relaxed">
             2+ years in Finance Industry<br>
             BA Business & Economics
-          </p>
-        </div>
-      </div>
+        </p>
+        </div>     
+    </div>
       
       <!-- School Emblems / Crests (displayed at a larger size) -->
     <div class="flex justify-center items-center gap-8 mt-10">
@@ -109,15 +132,19 @@
         <img src="assets/schools/col.png" alt="Col Crest" class="w-24 h-24 object-contain" />
     </div>
     
-    <!-- Newsletter Subscribe Description and Button -->
+    
+    <!-- Subscribe Button (visible on the page) -->
     <div class="text-center mt-10">
-        <button class="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-900 transition duration-300 shadow-md">
+        <button
+        id="openModal"
+        class="bg-black text-white px-8 py-4 rounded-full shadow-md transition-transform duration-300 hover:scale-105 hover:bg-gray-900"
+        >
         Subscribe to our newsletter
         </button>
-    </div>
-  
-  </section>
-  
+    </div> 
+</section>
+
+ 
  <!-- 2) Our Journey Timeline (Apple-Inspired) -->
 <section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
     <div class="w-full max-w-4xl">
@@ -251,10 +278,6 @@
   
 
 
-
-
-
-
   
 
     <!-- 2) Our Story / Big Paragraph -->
@@ -273,6 +296,12 @@
       </div>
     </section>
 
+
+
+
+
+
+
     <!-- 3) Partnerships Section -->
     <section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
       <div class="content-box bg-white shadow-xl rounded-3xl p-10">
@@ -282,18 +311,7 @@
           global workforce solutions.
         </p>
 
-        <!-- 4 small round PNG logos -->
-        <div class="flex flex-wrap justify-center items-center gap-8 mb-6">
-          <img src="assets/logos/school1.png" alt="School 1"
-               class="w-16 h-16 rounded-full object-cover ring-2 ring-white shadow" />
-          <img src="assets/logos/school2.png" alt="School 2"
-               class="w-16 h-16 rounded-full object-cover ring-2 ring-white shadow" />
-          <img src="assets/logos/school3.png" alt="School 3"
-               class="w-16 h-16 rounded-full object-cover ring-2 ring-white shadow" />
-          <img src="assets/logos/school4.png" alt="School 4"
-               class="w-16 h-16 rounded-full object-cover ring-2 ring-white shadow" />
-        </div>
-
+    
         <!-- Partnerships contact info -->
         <p class="text-lg text-gray-600 leading-relaxed text-center">
           For partnership and business enquiries, please contact us at 
@@ -310,7 +328,197 @@
     &copy; 2025 Mobilizr. All rights reserved.
   </footer>
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- SUBSCRIBE Modal (placed at the very end of the body) -->
+<div id="newsletterModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hidden z-[9999] transition-opacity duration-300">
+    <div id="newsletterModalContent" class="bg-white rounded-3xl shadow-xl p-8 max-w-md w-full mx-auto relative transition-opacity duration-300 mt-16 max-h-[90vh] overflow-y-auto">
+      <!-- Minimalist close button -->
+      <button id="closeModal" class="close-button absolute top-3 right-3 focus:outline-none" aria-label="Close">&times;</button>
+      <form id="newsletter-form" action="/subscribe" method="POST" class="space-y-4 pt-6" novalidate>
+
+        <!-- Simplified email input -->
+        <input type="email" id="email" name="email" required placeholder="Your email"
+          class="w-full bg-gray-50 p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition duration-200 hover:border-white hover:shadow-sm" />
+        <!-- Standard checkbox with indented label -->
+        <div class="flex items-center">
+          <input type="checkbox" id="gdpr-consent" name="gdpr-consent" class="h-4 w-4 accent-blue-600" />
+          <span class="ml-3 text-gray-600 text-sm">
+            I’m in for epic updates (I've read the <a href="/privacy" class="text-blue-600 underline">privacy policy</a>)
+          </span>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" id="submitBtn" disabled
+          class="w-full bg-black text-white px-4 py-3 rounded-full opacity-50 cursor-not-allowed transition-opacity duration-300 hover:opacity-75">
+          Get me Mobilized!
+        </button>
+      </form>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 
+    bg-black bg-opacity-80 text-white text-sm px-6 py-3 rounded-2xl shadow-lg 
+    backdrop-blur-md opacity-0 hidden transition-opacity duration-500">
+</div>
+
+
+  
+
+<!-- Email Input with Custom Validation -->
+<input type="email" id="email" name="email" required placeholder="Your email"
+class="w-full bg-gray-50 p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition duration-200 hover:border-white hover:shadow-sm" />
+
+<!-- JavaScript for Custom EMAIL Validation -->
+<script>
+   
+document.addEventListener("DOMContentLoaded", function () {
+    const emailInput = document.getElementById("email");
+    const gdprCheckbox = document.getElementById("gdpr-consent");
+    const submitBtn = document.getElementById("submitBtn");
+    const form = document.getElementById("newsletter-form");
+    const modal = document.getElementById("newsletterModal");
+    const toast = document.getElementById("toast");
+    const openModalBtn = document.getElementById("openModal");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    if (!emailInput || !gdprCheckbox || !submitBtn || !form || !toast || !modal) {
+        console.error("Required elements missing.");
+        return;
+    }
+
+    function showModal() {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        setTimeout(() => modal.classList.replace("opacity-0", "opacity-100"), 10);
+    }
+
+    function hideModal() {
+        modal.classList.replace("opacity-100", "opacity-0");
+        setTimeout(() => {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "";
+        }, 300);
+    }
+
+    function showToast(message) {
+        toast.textContent = message;
+        toast.classList.remove("hidden", "opacity-0");
+        toast.classList.add("opacity-100");
+        setTimeout(() => {
+            toast.classList.remove("opacity-100");
+            toast.classList.add("opacity-0");
+            setTimeout(() => toast.classList.add("hidden"), 300);
+        }, 3000);
+    }
+
+    function startConfetti() {
+        if (typeof confetti === "function") {
+            confetti({ particleCount: 250, spread: 300 });
+        }
+    }
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+$/.test(email)) {
+            emailInput.classList.add("border-red-500");
+            emailInput.placeholder = "Please enter a valid email";
+            return;
+        }
+
+        emailInput.classList.remove("border-red-500");
+
+        fetch("http://localhost:8081/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            emailInput.value = "";
+            gdprCheckbox.checked = false;
+            submitBtn.disabled = true;
+            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+            hideModal();
+
+            if (data.message === "You're already subscribed!") {
+                showToast("Wow! You're already subscribed");
+            } else {
+                startConfetti();
+                showToast("Welcome!");
+            }
+        })
+        .catch(error => {
+            console.error("Fetch error:", error);
+            showToast("Subscription failed. Try again.");
+        });
+    });
+
+    openModalBtn?.addEventListener("click", showModal);
+    closeModalBtn?.addEventListener("click", hideModal);
+    window.addEventListener("click", e => { if (e.target === modal) hideModal(); });
+    window.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.classList.contains("hidden")) hideModal(); });
+
+    gdprCheckbox?.addEventListener("change", () => {
+        submitBtn.disabled = !gdprCheckbox.checked;
+        submitBtn.classList.toggle("opacity-50", !gdprCheckbox.checked);
+        submitBtn.classList.toggle("cursor-not-allowed", !gdprCheckbox.checked);
+    });
+});
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById('newsletterModal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const gdprCheckbox = document.getElementById('gdpr-consent');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function showModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => modal.classList.replace('opacity-0', 'opacity-100'), 10);
+        }
+
+        function hideModal() {
+            modal.classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        openModalBtn?.addEventListener('click', showModal);
+        closeModalBtn?.addEventListener('click', hideModal);
+        window.addEventListener('click', e => { if (e.target === modal) hideModal(); });
+        window.addEventListener('keydown', e => { if (e.key === "Escape" && !modal.classList.contains('hidden')) hideModal(); });
+
+        gdprCheckbox?.addEventListener('change', () => {
+            submitBtn.disabled = !gdprCheckbox.checked;
+            submitBtn.classList.toggle('opacity-50', !gdprCheckbox.checked);
+            submitBtn.classList.toggle('cursor-not-allowed', !gdprCheckbox.checked);
+        });
+    });
+</script>
+  
+  
+
+
   <!-- IntersectionObserver + Smooth Scroll -->
   <script src="scripts/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
 </body>
 </html>
