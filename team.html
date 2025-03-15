@@ -1,524 +1,152 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mobilizr - Our Team</title>
-
-  <!-- Tailwind CSS (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Link to the same main.css that contains your global gradient/animations -->
+  <title>Mobilizr - Team</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="Meet the Mobilizr Team" />
+  <meta name="author" content="MOBILIZR TEAM" />
+  <meta property="og:image" content="/og-image.png" />
 </head>
-
-
-<body class="text-gray-900">
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md fixed top-0 left-0 w-full px-8 py-4 flex justify-between items-center z-50">
-    <img src="assets/logo.png" alt="Mobilizr Logo" class="h-10" />
-    <div class="hidden md:flex space-x-6">
-      <a href="index.html" class="text-gray-600 hover:text-black transition duration-300">Home</a>
-      <a href="index.html#features" class="text-gray-600 hover:text-black transition duration-300">Features</a>
-      <a href="team.html" class="text-gray-600 hover:text-black transition duration-300">Team</a>
-      <a href="index.html#contact" class="text-gray-600 hover:text-black transition duration-300">Contact</a>
-    </div>
-    <button class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition duration-300">
-      Get Started
-    </button>
-  </nav>
-
-  <!-- 
-    MAIN CONTENT WRAPPER 
-    No inline background styles here; 
-    the gradient comes from main.css (body { ... }).
-  -->
-<main class="pt-24 min-h-screen">
-  <!-- 1) The Team -->
-<section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
-    <div class="content-box bg-white shadow-xl rounded-3xl p-12">
-      <!-- Main Heading -->
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">
-        The Team Building the Future of Workforce Mobility
-      </h2>
-  
-    <!-- Team Images Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-9">
-       
-        <!-- OLIVER (pastel yellow) -->
-        <div class="text-center">
-        <div class="relative group transition-transform duration-300 hover:scale-105">
-            <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank">
-            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-yellow-200">
-                <img src="assets/team/oliver.png" alt="Oliver Jones" class="w-full h-full object-cover" />
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="bg-yellow-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
-            </div>
-            </a>
+<body>
+  <div id="app">
+    <!-- Navbar -->
+    <header id="navbar">
+      <nav class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/logo.png" alt="Mobilizr Logo" />
+          </a>
         </div>
-        <h3 class="text-xl font-semibold text-gray-800">Oliver Jones</h3>
-        <p class="text-gray-600 mt-2 leading-relaxed">
-            4+ years as Product Manager<br>
-            BA Computer Science<br>
-            MSc Entrepreneurship
-        </p>
+        <div class="nav-items" id="nav-items">
+          <a href="team.html" class="nav-link">Team</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <button class="btn btn-primary meet-btn">Meet Us</button>
         </div>
-    
-        <!-- IBRAHIM (pastel purple) -->
-        <div class="text-center">
-        <div class="relative group transition-transform duration-300 hover:scale-105">
-            <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank">
-            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-purple-200">
-                <img src="assets/team/ibrahim.png" alt="Ibrahim Diem" class="w-full h-full object-cover" />
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="bg-purple-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
-            </div>
-            </a>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-800">Ibrahim Diem</h3>
-        <p class="text-gray-600 mt-2 leading-relaxed">
-            2+ years start-up work<br>
-            BA Business & Economics<br>
-            MSc Health Economics
-        </p>
-        </div>
-    
-        <!-- ELLA (pastel blue) -->
-        <div class="text-center">
-        <div class="relative group transition-transform duration-300 hover:scale-105">
-            <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank">
-            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-blue-200">
-                <img src="assets/team/ella.png" alt="Ella Karlsson" class="w-full h-full object-cover" />
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="bg-blue-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
-            </div>
-            </a>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-800">Ella Karlsson</h3>
-        <p class="text-gray-600 mt-2 leading-relaxed">
-            3rd year Industrial Engineering & Management<br>
-            Computer Science & Machine Learning
-        </p>
-        </div>
-  
-        <!-- PHILIP (pastel pink) -->
-        <div class="text-center">
-        <div class="relative group transition-transform duration-300 hover:scale-105">
-            <a href="https://www.linkedin.com/in/philip-rask-0b75a016b/" target="_blank">
-            <div class="w-48 h-48 mx-auto mb-4 relative rounded-full overflow-hidden shadow-xl group-hover:shadow-2xl ring-8 ring-pink-200">
-                <img src="assets/team/philip.png" alt="Philip Rask" class="w-full h-full object-cover" />
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="bg-pink-500 px-2 py-1 rounded-full text-white text-sm">Connect on LinkedIn</span>
-            </div>
-            </a>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-800">Philip Rask</h3>
-        <p class="text-gray-600 mt-2 leading-relaxed">
-            2+ years in Finance Industry<br>
-            BA Business & Economics
-        </p>
-        </div>     
-    </div>
-      
-      <!-- School Emblems / Crests (displayed at a larger size) -->
-    <div class="flex justify-center items-center gap-8 mt-10">
-        <img src="assets/schools/kth.png" alt="KTH Crest" class="w-24 h-24 object-contain" />
-        <img src="assets/schools/sse.png" alt="SSE Crest" class="w-24 h-24 object-contain" />
-        <img src="assets/schools/kar.png" alt="Kar Crest" class="w-24 h-24 object-contain" />
-        <img src="assets/schools/col.png" alt="Col Crest" class="w-24 h-24 object-contain" />
-    </div>
-    
-    
-    <!-- Subscribe Button (visible on the page) -->
-    <div class="text-center mt-10">
-        <button
-        id="openModal"
-        class="bg-black text-white px-8 py-4 rounded-full shadow-md transition-transform duration-300 hover:scale-105 hover:bg-gray-900"
-        >
-        Subscribe to our newsletter
+        <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
-    </div> 
-</section>
+      </nav>
+    </header>
 
- 
- <!-- 2) Our Journey Timeline (Apple-Inspired) -->
-<section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
-    <div class="w-full max-w-4xl">
-      <h2 class="text-4xl font-bold text-white mb-12 text-center">
-        Our Journey
-      </h2>
-      <div class="relative">
-        <!-- Central vertical line -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l border-white opacity-20"></div>
-        <div class="space-y-16">
-          <!-- Timeline Event 1: The Spark (Left-Aligned) -->
-          <div class="flex items-center">
-            <div class="w-1/2 pr-8 text-right">
-              <div class="inline-block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-                <h3 class="text-xl font-semibold text-white">The Spark</h3>
-                <p class="mt-2 text-base text-gray-300">
-                  Our journey ignited during an impromptu brainstorming session—ideas and passion collided.
-                </p>
-                <span class="mt-2 inline-block px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-full">
-                  2022
-                </span>
+    <!-- Team Section -->
+    <main class="team-section">
+      <div class="team-video-wrapper">
+        <video autoplay muted loop playsinline class="team-video-bg">
+          <source src="assets/aurora17.mp4" type="video/mp4">
+          Your browser doesn’t support video.
+        </video>
+      </div>
+      <div class="team-content-wrapper">
+        <div class="team-content container">
+          <h1 class="team-title">The Minds Behind Mobilizr</h1>
+          <p class="team-subtitle">A small team with a big obsession: fixing workforce mobility.</p>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="team-member-card">
+                <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank" class="team-member-link">
+                  <img src="assets/team/ella.png" alt="Ella Karlsson" class="team-member-img" />
+                </a>
+                <div class="team-member-info">
+                  <h3 class="team-member-name">Ella Karlsson</h3>
+                  <p class="team-member-desc">MSc Industrial Engineering & Management </br> Specializing in Computer Science & Machine Learning</p>
+                  <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                </div>
               </div>
             </div>
-            <div class="relative flex-shrink-0">
-              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ring-4 ring-white shadow-lg">
-                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2a1 1 0 00-.894.553l-4 8A1 1 0 005 12h1v4a1 1 0 001 1h4v-2H7v-2h2v-2H7v-2h2V6H7v-2h2V2z"/>
-                </svg>
+            <div class="team-member">
+              <div class="team-member-card">
+                <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank" class="team-member-link">
+                  <img src="assets/team/ibrahim.png" alt="Ibrahim Diem" class="team-member-img" />
+                </a>
+                <div class="team-member-info">
+                  <h3 class="team-member-name">Ibrahim Diem</h3>
+                  <p class="team-member-desc">2+ years start-up work </br> BA Business & Economics </br> MSc Health Economics</p>
+                  <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                </div>
               </div>
             </div>
-            <div class="w-1/2 pl-8"></div>
-          </div>
-  
-          <!-- Timeline Event 2: Idea Ignition (Right-Aligned) -->
-          <div class="flex items-center flex-row-reverse">
-            <div class="w-1/2 pl-8 text-left">
-              <div class="inline-block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-                <h3 class="text-xl font-semibold text-white">Idea Ignition</h3>
-                <p class="mt-2 text-base text-gray-300">
-                  Our diverse skill sets merged to spark a breakthrough idea for Mobilizr.
-                </p>
-                <span class="mt-2 inline-block px-3 py-1 text-sm font-medium text-white bg-green-600 rounded-full">
-                  Concept Phase
-                </span>
+            <div class="team-member">
+              <div class="team-member-card">
+                <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank" class="team-member-link">
+                  <img src="assets/team/oliver.png" alt="Oliver Jones" class="team-member-img" />
+                </a>
+                <div class="team-member-info">
+                  <h3 class="team-member-name">Oliver Jones</h3>
+                  <p class="team-member-desc">4+ years as Product Manager </br> BA Computer Science </br> MSc Entrepreneurship</p>
+                  <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                </div>
               </div>
             </div>
-            <div class="relative flex-shrink-0">
-              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ring-4 ring-white shadow-lg">
-                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2a1 1 0 00-.894.553l-4 8A1 1 0 005 12h1v4a1 1 0 001 1h4v-2H7v-2h2v-2H7v-2h2V6H7v-2h2V2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="w-1/2 pr-8"></div>
-          </div>
-  
-          <!-- Timeline Event 3: Team Formation (Left-Aligned) -->
-          <div class="flex items-center">
-            <div class="w-1/2 pr-8 text-right">
-              <div class="inline-block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-                <h3 class="text-xl font-semibold text-white">Team Formation</h3>
-                <p class="mt-2 text-base text-gray-300">
-                  We united as a visionary team, blending tech, business, and design to drive innovation.
-                </p>
-                <span class="mt-2 inline-block px-3 py-1 text-sm font-medium text-white bg-purple-600 rounded-full">
-                  Assembled
-                </span>
-              </div>
-            </div>
-            <div class="relative flex-shrink-0">
-              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ring-4 ring-white shadow-lg">
-                <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2a1 1 0 00-.894.553l-4 8A1 1 0 005 12h1v4a1 1 0 001 1h4v-2H7v-2h2v-2H7v-2h2V6H7v-2h2V2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="w-1/2 pl-8"></div>
-          </div>
-  
-          <!-- Timeline Event 4: Prototype & Pitch (Right-Aligned) -->
-          <div class="flex items-center flex-row-reverse">
-            <div class="w-1/2 pl-8 text-left">
-              <div class="inline-block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-                <h3 class="text-xl font-semibold text-white">Prototype & Pitch</h3>
-                <p class="mt-2 text-base text-gray-300">
-                  Our first prototype was built and pitched with passion, setting our journey in motion.
-                </p>
-                <span class="mt-2 inline-block px-3 py-1 text-sm font-medium text-white bg-red-600 rounded-full">
-                  Prototype
-                </span>
-              </div>
-            </div>
-            <div class="relative flex-shrink-0">
-              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ring-4 ring-white shadow-lg">
-                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2a1 1 0 00-.894.553l-4 8A1 1 0 005 12h1v4a1 1 0 001 1h4v-2H7v-2h2v-2H7v-2h2V6H7v-2h2V2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="w-1/2 pr-8"></div>
-          </div>
-  
-          <!-- Timeline Event 5: Future Horizons (Left-Aligned) -->
-          <div class="flex items-center">
-            <div class="w-1/2 pr-8 text-right">
-              <div class="inline-block bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl shadow-lg">
-                <h3 class="text-xl font-semibold text-white">Future Horizons</h3>
-                <p class="mt-2 text-base text-gray-300">
-                  Our journey continues with innovative ideas poised to reshape workforce mobility.
-                </p>
-                <span class="mt-2 inline-block px-3 py-1 text-sm font-medium text-white bg-yellow-600 rounded-full">
-                  Coming Soon
-                </span>
-              </div>
-            </div>
-            <div class="relative flex-shrink-0">
-              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center ring-4 ring-white shadow-lg">
-                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2a1 1 0 00-.894.553l-4 8A1 1 0 005 12h1v4a1 1 0 001 1h4v-2H7v-2h2v-2H7v-2h2V6H7v-2h2V2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="w-1/2 pl-8"></div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  
-  
-
-
-  
-
-    <!-- 2) Our Story / Big Paragraph -->
-    <section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
-      <div class="content-box bg-white shadow-xl rounded-3xl p-10 max-w-4xl">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center">
-          Our Story
-        </h2>
-        <p class="text-lg text-gray-600 leading-relaxed text-center">
-          We’re four dedicated students on a mission to simplify global 
-          workforce mobility. Combining our backgrounds in 
-          <strong>product management, computer science, 
-          business &amp; economics, and entrepreneurship</strong>, 
-          we’ve come together to bring Mobilizr to life.
-        </p>
-      </div>
-    </section>
-
-
-
-
-
-
-
-    <!-- 3) Partnerships Section -->
-    <section class="min-h-screen flex items-center justify-center px-6 fade-in pb-12">
-      <div class="content-box bg-white shadow-xl rounded-3xl p-10">
-        <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">Partnership</h2>
-        <p class="text-lg text-gray-600 max-w-xl mx-auto mb-6 leading-relaxed text-center">
-          We collaborate with top institutions to further innovation in 
-          global workforce solutions.
-        </p>
-
-    
-        <!-- Partnerships contact info -->
-        <p class="text-lg text-gray-600 leading-relaxed text-center">
-          For partnership and business enquiries, please contact us at 
-          <a href="mailto:hello@mobilizr.com" class="text-blue-600 underline">
-            hello@mobilizr.com
-          </a>.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-50 text-center py-8 mt-6 text-gray-500 text-sm">
-    &copy; 2025 Mobilizr. All rights reserved.
-  </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- SUBSCRIBE Modal (placed at the very end of the body) -->
-<div id="newsletterModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hidden z-[9999] transition-opacity duration-300">
-    <div id="newsletterModalContent" class="bg-white rounded-3xl shadow-xl p-8 max-w-md w-full mx-auto relative transition-opacity duration-300 mt-16 max-h-[90vh] overflow-y-auto">
-      <!-- Minimalist close button -->
-      <button id="closeModal" class="close-button absolute top-3 right-3 focus:outline-none" aria-label="Close">&times;</button>
-      <form id="newsletter-form" action="/subscribe" method="POST" class="space-y-4 pt-6" novalidate>
-
-        <!-- Simplified email input -->
-        <input type="email" id="email" name="email" required placeholder="Your email"
-          class="w-full bg-gray-50 p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition duration-200 hover:border-white hover:shadow-sm" />
-        <!-- Standard checkbox with indented label -->
-        <div class="flex items-center">
-          <input type="checkbox" id="gdpr-consent" name="gdpr-consent" class="h-4 w-4 accent-blue-600" />
-          <span class="ml-3 text-gray-600 text-sm">
-            I’m in for epic updates (I've read the <a href="/privacy" class="text-blue-600 underline">privacy policy</a>)
-          </span>
+        <!-- SSE Business Lab Content Box -->
+        <div class="sse-content container">
+          <div class="sse-logo">
+            <img src="assets/SSEBL.png" alt="SSE Business Lab Logo" />
+          </div>
+          <p class="sse-text">Mobilizr is a proud member of SSE Business Lab, ranked as the #1 startup incubator in the Nordics.</p>
         </div>
-        <!-- Submit button -->
-        <button type="submit" id="submitBtn" disabled
-          class="w-full bg-black text-white px-4 py-3 rounded-full opacity-50 cursor-not-allowed transition-opacity duration-300 hover:opacity-75">
-          Get me Mobilized!
-        </button>
-      </form>
+      </div>
+    </main>
+
+    <!-- Newsletter Modal -->
+    <div id="newsletter-modal" class="modal">
+      <div class="modal-content">
+        <button id="close-newsletter-modal" class="close-btn" aria-label="Close">×</button>
+        <h2 class="modal-title">Stay in the Loop</h2>
+        <p class="modal-subtitle">Get the latest on mobility fixes—straight to your inbox.</p>
+        <form id="newsletter-form" class="modal-form">
+          <input type="email" id="newsletter-email" class="input-field" placeholder="Your email" required />
+          <label class="checkbox-label">
+            <input type="checkbox" id="gdpr-consent" class="checkbox" required />
+            I’m cool with updates (<a href="/privacy" class="link">privacy policy</a>)
+          </label>
+          <button type="submit" class="btn btn-primary">Sign Me Up</button>
+        </form>
+      </div>
     </div>
-</div>
 
-<!-- Toast Notification -->
-<div id="toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 
-    bg-black bg-opacity-80 text-white text-sm px-6 py-3 rounded-2xl shadow-lg 
-    backdrop-blur-md opacity-0 hidden transition-opacity duration-500">
-</div>
+    <!-- Meet Modal -->
+    <div id="meet-modal" class="modal">
+      <div class="modal-content">
+        <button id="close-meet-modal" class="close-btn" aria-label="Close">×</button>
+        <h2 class="modal-title">Let’s Talk Mobility</h2>
+        <p class="modal-subtitle">Got ideas? Questions? Just wanna chat? Pick a time.</p>
+        <form id="meet-form" class="modal-form">
+          <input type="text" id="meet-name" class="input-field" placeholder="Your name" required />
+          <input type="email" id="meet-email" class="input-field" placeholder="Your email (optional)" />
+          <input type="tel" id="meet-phone" class="input-field" placeholder="Your phone (optional)" />
+          <div id="meet-time-slots">
+            <input type="datetime-local" id="meet-time1" class="input-field" required />
+          </div>
+          <button type="button" id="add-meet-time" class="btn btn-outline">+ Add Time</button>
+          <textarea id="meet-notes" class="input-field" placeholder="What’s on your mind?" rows="4"></textarea>
+          <button type="submit" class="btn btn-primary">Book It</button>
+        </form>
+      </div>
+    </div>
 
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
 
-  
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-text">© <span id="current-year"></span> Mobilizr. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#" id="newsletter-link" class="footer-link">Newsletter</a>
+          <a href="#" class="footer-link social-link"><img src="assets/x-logo.png" alt="X" class="social-icon" /></a>
+          <a href="#" class="footer-link social-link"><img src="assets/linkedin-logo.png" alt="LinkedIn" class="social-icon" /></a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-<!-- Email Input with Custom Validation -->
-<input type="email" id="email" name="email" required placeholder="Your email"
-class="w-full bg-gray-50 p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 transition duration-200 hover:border-white hover:shadow-sm" />
-
-<!-- JavaScript for Custom EMAIL Validation -->
-<script>
-   
-document.addEventListener("DOMContentLoaded", function () {
-    const emailInput = document.getElementById("email");
-    const gdprCheckbox = document.getElementById("gdpr-consent");
-    const submitBtn = document.getElementById("submitBtn");
-    const form = document.getElementById("newsletter-form");
-    const modal = document.getElementById("newsletterModal");
-    const toast = document.getElementById("toast");
-    const openModalBtn = document.getElementById("openModal");
-    const closeModalBtn = document.getElementById("closeModal");
-
-    if (!emailInput || !gdprCheckbox || !submitBtn || !form || !toast || !modal) {
-        console.error("Required elements missing.");
-        return;
-    }
-
-    function showModal() {
-        modal.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-        setTimeout(() => modal.classList.replace("opacity-0", "opacity-100"), 10);
-    }
-
-    function hideModal() {
-        modal.classList.replace("opacity-100", "opacity-0");
-        setTimeout(() => {
-            modal.classList.add("hidden");
-            document.body.style.overflow = "";
-        }, 300);
-    }
-
-    function showToast(message) {
-        toast.textContent = message;
-        toast.classList.remove("hidden", "opacity-0");
-        toast.classList.add("opacity-100");
-        setTimeout(() => {
-            toast.classList.remove("opacity-100");
-            toast.classList.add("opacity-0");
-            setTimeout(() => toast.classList.add("hidden"), 300);
-        }, 3000);
-    }
-
-    function startConfetti() {
-        if (typeof confetti === "function") {
-            confetti({ particleCount: 250, spread: 300 });
-        }
-    }
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const email = emailInput.value.trim();
-        if (!email || !/^[^\s@]+@[^\s@]+$/.test(email)) {
-            emailInput.classList.add("border-red-500");
-            emailInput.placeholder = "Please enter a valid email";
-            return;
-        }
-
-        emailInput.classList.remove("border-red-500");
-
-        fetch("http://localhost:8081/subscribe", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            emailInput.value = "";
-            gdprCheckbox.checked = false;
-            submitBtn.disabled = true;
-            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
-            hideModal();
-
-            if (data.message === "You're already subscribed!") {
-                showToast("Wow! You're already subscribed");
-            } else {
-                startConfetti();
-                showToast("Welcome!");
-            }
-        })
-        .catch(error => {
-            console.error("Fetch error:", error);
-            showToast("Subscription failed. Try again.");
-        });
-    });
-
-    openModalBtn?.addEventListener("click", showModal);
-    closeModalBtn?.addEventListener("click", hideModal);
-    window.addEventListener("click", e => { if (e.target === modal) hideModal(); });
-    window.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.classList.contains("hidden")) hideModal(); });
-
-    gdprCheckbox?.addEventListener("change", () => {
-        submitBtn.disabled = !gdprCheckbox.checked;
-        submitBtn.classList.toggle("opacity-50", !gdprCheckbox.checked);
-        submitBtn.classList.toggle("cursor-not-allowed", !gdprCheckbox.checked);
-    });
-});
-</script>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById('newsletterModal');
-        const openModalBtn = document.getElementById('openModal');
-        const closeModalBtn = document.getElementById('closeModal');
-        const gdprCheckbox = document.getElementById('gdpr-consent');
-        const submitBtn = document.getElementById('submitBtn');
-
-        function showModal() {
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => modal.classList.replace('opacity-0', 'opacity-100'), 10);
-        }
-
-        function hideModal() {
-            modal.classList.replace('opacity-100', 'opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        }
-
-        openModalBtn?.addEventListener('click', showModal);
-        closeModalBtn?.addEventListener('click', hideModal);
-        window.addEventListener('click', e => { if (e.target === modal) hideModal(); });
-        window.addEventListener('keydown', e => { if (e.key === "Escape" && !modal.classList.contains('hidden')) hideModal(); });
-
-        gdprCheckbox?.addEventListener('change', () => {
-            submitBtn.disabled = !gdprCheckbox.checked;
-            submitBtn.classList.toggle('opacity-50', !gdprCheckbox.checked);
-            submitBtn.classList.toggle('cursor-not-allowed', !gdprCheckbox.checked);
-        });
-    });
-</script>
-  
-  
-
-
-  <!-- IntersectionObserver + Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="scripts/main.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
 </body>
 </html>

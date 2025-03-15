@@ -1,65 +1,199 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Hemsidan har laddats!");
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.getElementById('navbar');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navItems = document.getElementById('nav-items');
+  const toast = document.getElementById('toast');
+  const currentYear = document.getElementById('current-year');
   
-    // 1. Smooth scrolling for navbar links
-    document.querySelectorAll("nav a").forEach(anchor => {
-      anchor.addEventListener("click", function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth" });
+  const problemsContainer = document.querySelector('.problems-container');
+  const cards = document.querySelectorAll('.problem-card');
+  const cardVisibleHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--card-visible')) || 150; // Fallback to 150px if not defined
+  
+  const blogFilterBtns = document.querySelectorAll('.blog-filter-btn');
+  const blogPosts = document.querySelectorAll('.blog-post');
+
+  // Modals
+  const modals = {
+    problem: {
+      open: document.getElementById('problem-btn'),
+      modal: document.getElementById('problem-modal'),
+      close: document.getElementById('close-problem-modal'),
+      form: document.getElementById('problem-form'),
+    },
+    meet: {
+      open: document.querySelector('.meet-btn'),
+      modal: document.getElementById('meet-modal'),
+      close: document.getElementById('close-meet-modal'),
+      form: document.getElementById('meet-form'),
+      addTime: document.getElementById('add-meet-time'),
+      timeSlots: document.getElementById('meet-time-slots'),
+    },
+    newsletter: {
+      open: document.getElementById('newsletter-link'),
+      modal: document.getElementById('newsletter-modal'),
+      close: document.getElementById('close-newsletter-modal'),
+      form: document.getElementById('newsletter-form'),
+    },
+  };
+
+  let timeSlotCount = 1;
+
+  // Set current year
+  if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+  // Navbar scroll
+  if (navbar) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // Mobile menu
+  if (mobileToggle && navItems) {
+    mobileToggle.addEventListener('click', function () {
+      mobileToggle.classList.toggle('active');
+      navItems.classList.toggle('active');
+      const bars = mobileToggle.querySelectorAll('.bar');
+      if (mobileToggle.classList.contains('active')) {
+        bars[0].style.transform = 'translateY(8px) rotate(45deg)';
+        bars[1].style.opacity = '0';
+        bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+      } else {
+        bars[0].style.transform = 'none';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = 'none';
+      }
+    });
+  }
+
+  // Modal handler
+  function handleModal(modalObj) {
+    const { open, modal, close, form } = modalObj;
+    if (open && modal) {
+      open.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    if (close && modal) {
+      close.addEventListener('click', () => closeModal(modal));
+    }
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(modal);
+      });
+    }
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        fetch(form === modals.problem.form ? 'http://localhost:8081/submit-problem' :
+              form === modals.meet.form ? 'http://localhost:8081/connect' :
+              'http://localhost:8081/subscribe', {
+          method: 'POST',
+          body: form === modals.problem.form ? data : JSON.stringify(Object.fromEntries(data)),
+          headers: form === modals.problem.form ? {} : { 'Content-Type': 'application/json' },
+        })
+        .then(res => res.json())
+        .then(() => {
+          form.reset();
+          closeModal(modal);
+          showToast('Thanks for sharing!');
+          confetti({ particleCount: 100, spread: 70 });
+        })
+        .catch(err => {
+          console.error(err);
+          showToast('Oops, something went wrong.');
+        });
+      });
+    }
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Add meeting time slots
+  if (modals.meet.addTime && modals.meet.timeSlots) {
+    modals.meet.addTime.addEventListener('click', () => {
+      if (timeSlotCount < 3) {
+        timeSlotCount++;
+        const slot = document.createElement('div');
+        slot.className = 'time-slot';
+        slot.innerHTML = `<input type="datetime-local" id="meet-time${timeSlotCount}" class="input-field" required />`;
+        modals.meet.timeSlots.appendChild(slot);
+      } else {
+        showToast('Max 3 time slots.');
+      }
+    });
+  }
+
+  // Initialize modals
+  Object.values(modals).forEach(handleModal);
+
+  // Problems Card Stacking Animation
+  if (problemsContainer && cards.length) {
+    function adjustCards() {
+      let scroll = problemsContainer.scrollTop;
+      cards.forEach((card, index) => {
+        const cardPos = (index * cardVisibleHeight) - scroll; // Position relative to scroll
+        if (cardPos < 0) {
+          // Card is above the visible area, stack it up
+          card.style.transform = `translateY(${cardPos}px)`;
+        } else {
+          // Card is in or below the visible area, keep it at the top
+          card.style.transform = `translateY(0)`;
         }
       });
-    });
-  
-    // 2. IntersectionObserver for .fade-in elements
-    const fadeElements = document.querySelectorAll(".fade-in");
-  
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Element enters the viewport
-            entry.target.classList.add('visible');
-          } else {
-            // Element leaves the viewport
-            entry.target.classList.remove('visible');
-          }
-        });
-      }, { threshold: 0.2 });
-      
-  
-    // *** This line is CRUCIAL. ***
-    // It tells the observer to actually watch each fade element:
-    fadeElements.forEach(el => observer.observe(el));
-  });
-
-
-
-
-  function startConfetti() {
-    var duration = 3 * 1000; // 3 seconds
-    var animationEnd = Date.now() + duration;
-    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
-
-    function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
     }
 
-    var interval = setInterval(function() {
-        var timeLeft = animationEnd - Date.now();
+    problemsContainer.addEventListener('scroll', adjustCards); // Attach to problemsContainer, not window
+    adjustCards(); // Initial call
+  }
 
-        if (timeLeft <= 0) {
-            return clearInterval(interval);
-        }
+  // Blog Filtering
+  if (blogFilterBtns.length && blogPosts.length) {
+    blogFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        // Update active state
+        blogFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-        var particleCount = 5 * (timeLeft / duration);
-        confetti({
-            particleCount,
-            angle: randomInRange(55, 125),
-            spread: 60,
-            origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 },
-            colors: ["#FFB3B3", "#B3CFFF", "#FFDD99", "#B3E0B3"] // Apple-inspired pastels
+        // Filter posts
+        blogPosts.forEach(post => {
+          const category = post.getAttribute('data-category');
+          if (filter === 'ALL' || category === filter) {
+            post.style.display = 'block';
+          } else {
+            post.style.display = 'none';
+          }
         });
-    }, 250);
-}
+      });
+    });
+
+    // Set "Latest" as default active
+    const latestBtn = document.querySelector('.blog-filter-btn[data-filter="ALL"]');
+    if (latestBtn) latestBtn.click();
+  }
+
+  // Toast
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.remove('hidden');
+    toast.classList.add('active');
+    setTimeout(() => {
+      toast.classList.remove('active');
+      setTimeout(() => toast.classList.add('hidden'), 300);
+    }, 3000);
+  }
+});
