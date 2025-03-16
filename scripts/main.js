@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.addEventListener('click', function () {
       mobileToggle.classList.toggle('active');
       navItems.classList.toggle('active');
+      navbar.classList.toggle('mobile-active');
       const bars = mobileToggle.querySelectorAll('.bar');
       if (mobileToggle.classList.contains('active')) {
         bars[0].style.transform = 'translateY(8px) rotate(45deg)';
