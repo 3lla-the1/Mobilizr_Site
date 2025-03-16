@@ -422,31 +422,80 @@ a, button {
 }
 
 @media (max-width: 768px) {
+  /* Ensure problems section takes full height needed */
+  .problems-section {
+    min-height: auto; /* Let content dictate height */
+    padding: 20px 0; /* Add some breathing room */
+  }
+
+  /* Make container fully adaptive */
+  .problems-container {
+    width: 100%; /* Full width on mobile */
+    max-width: none; /* Remove max-width constraint */
+    height: auto; /* Dynamic height */
+    padding: 0 10px; /* Small padding for edges */
+    margin: 0; /* Remove auto margins */
+  }
+
+  /* Force vertical stacking with flexbox */
+  .card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* 32px gap for clear separation */
+    padding: 0;
+    margin: 0 auto;
+    width: 90%; /* Slightly narrower than full width */
+    max-width: 500px; /* Cap width for readability */
+  }
+
+  /* Remove sticky and make cards full-size */
+  .problem-card {
+    position: static; /* No sticky behavior */
+    padding-top: 0; /* Remove index-based padding */
+    width: 100%; /* Full width of container */
+  }
+
+  /* Scale up card body for visibility */
+  .problem-card-body {
+    height: 70vh; /* Taller on mobile, ~70% of viewport */
+    min-height: 400px; /* Minimum for small screens */
+    width: 100%; /* Full width */
+    background-size: cover; /* Ensure image fills */
+    background-position: center; /* Center image */
+    border-radius: var(--radius); /* Keep rounded corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  }
+
+  /* Optimize overlay for mobile */
   .apple-overlay {
-    bottom: 10px; /* Closer to bottom on mobile */
-    left: 10px; /* Closer to left on mobile */
-    padding: 16px 20px; /* Tighter padding */
-    width: 90%; /* Full width minus margins */
-    min-height: 200px; /* Elongate the overlay */
-    background: rgba(26, 26, 26, 0.43); /* Slightly more transparent */
-    flex-direction: column; /* Ensure vertical stacking */
-    justify-content: flex-start; /* Align content at top */
-    gap: 16px; /* More space between elements */
+    width: 90%; /* Almost full width of card */
+    max-width: none; /* Remove max-width constraint */
+    padding: 20px; /* More padding */
+    bottom: 15px; /* Slightly higher from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center align */
+    background: rgba(26, 26, 26, 0.6); /* More opaque */
+    min-height: 40%; /* At least 40% of card height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px; /* Consistent spacing */
   }
 
   .apple-title {
-    font-size: 1.5rem; /* Mobile-friendly */
+    font-size: 1.8rem; /* Larger for emphasis */
+    line-height: 1.2;
   }
 
   .apple-desc {
-    font-size: 0.9rem; /* Mobile-friendly */
-    margin-top: 8px; /* Space below title */
-    padding-top: 8px; /* Visual separation */
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider */
+    font-size: 1rem; /* Readable size */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Clear divider */
   }
 
   .apple-source {
-    font-size: 0.85rem; /* Smaller source */
+    font-size: 0.9rem; /* Slightly larger */
   }
 }
 
