@@ -11,7 +11,7 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   --transition: all 0.3s ease;
   --card-height: 500px;
-  --cards: 5;
+  --cards: 4;
   --cardTopPadding: 1.5em;
   --cardMargin: 4vw;
 }
@@ -338,55 +338,119 @@ a, button {
 
 .problem-card-body {
   box-sizing: border-box;
-  padding: 30px;
+  padding: 0; /* Remove padding since the overlay handles it */
   border-radius: var(--radius);
-  background: var(--eggshell-muted); 
+  background: var(--eggshell-muted); /* Fallback for other cards */
   height: var(--card-height);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: var(--shadow);
-  color: var(--white);
   box-shadow: 0 8px 24px rgb(0, 0, 0); /* Soft, diffused shadow */
+  background-size: cover; /* Full image coverage */
+  background-position: center; /* Centered image */
+  position: relative; /* For overlay positioning */
+  overflow: hidden; /* Ensure no spillover */
 }
 
-.problem-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 8px;
+/* Apple-Inspired Overlay - Matching Team Cards */
+.apple-overlay {
+  background: rgba(26, 26, 26, 0.43); /* Match team-member-card */
+  backdrop-filter: blur(5px); /* Match team-member-card blur */
+  border-radius: var(--radius); /* Rounded corners */
+  padding: 16px 20px; /* Generous, balanced padding */
+  max-width: 500px; /* Constrain width for readability */
+  width: 90%; /* Responsive width */
+  position: absolute; /* Overlay on image */
+  bottom: 20px; /* Distance from bottom */
+  left: 20px; /* Distance from left */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Clean spacing between elements */
 }
 
-.problem-subtitle {
-  font-size: 1rem;
-  color: var(--white);
-  opacity: 0.8;
+/* Apple-Styled Title */
+.apple-title {
+  font-size: 2rem; /* Bold but not overwhelming */
+  font-weight: 800; /* Extra bold, Apple-style */
+  color: var(--white); /* White for contrast on dark overlay */
+  margin: 0; /* No extra margin */
+  line-height: 1.1; /* Tight line height */
+  letter-spacing: -0.03em; /* Slight tightening */
 }
 
+/* Apple-Styled Description */
+.apple-desc {
+  font-size: 1rem; /* Readable size */
+  color: var(--white); /* White for contrast */
+  opacity: 0.85; /* Slightly muted for hierarchy */
+  margin: 0; /* No extra margin */
+  line-height: 1.6; /* Generous spacing */
+}
+
+/* Apple-Styled Source Link */
+.apple-source {
+  font-size: 0.9rem; /* Smaller, subtle */
+  color: var(--white); /* White for consistency */
+  opacity: 0.7; /* Muted for hierarchy */
+  text-decoration: none; /* No underline by default */
+  transition: var(--transition); /* Smooth hover */
+}
+
+.apple-source:hover {
+  opacity: 1; /* Full opacity on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Adjustments */
 @media (max-width: 1000px) {
-  :root {
-    --card-height: 400px; /* Reduce card height on smaller screens */
-    --cardMargin: 2vw; /* Reduce margin */
+  .apple-overlay {
+    max-width: 90%; /* Wider on smaller screens */
+    bottom: 20px; /* Closer to bottom */
+    left: 20px; /* Closer to left */
+    padding: 20px 24px; /* Slightly less padding */
   }
 
-  .problems-container {
-    /* Recalculate height with updated variables */
-    height: calc(var(--cards) * (var(--card-height) + var(--cardMargin)) + var(--cardTopPadding) + var(--cardMargin));
+  .apple-title {
+    font-size: 1.8rem; /* Slightly smaller */
+  }
+
+  .apple-desc {
+    font-size: 0.95rem; /* Slightly smaller */
   }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --card-height: 300px; /* Further reduce on mobile */
-    --cardMargin: 1vw; /* Further reduce margin */
+  .apple-overlay {
+    bottom: 10px; /* Closer to bottom on mobile */
+    left: 10px; /* Closer to left on mobile */
+    padding: 16px 20px; /* Tighter padding */
+    width: 90%; /* Full width minus margins */
+    min-height: 200px; /* Elongate the overlay */
+    background: rgba(26, 26, 26, 0.43); /* Slightly more transparent */
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: flex-start; /* Align content at top */
+    gap: 16px; /* More space between elements */
   }
 
-  .problems-container {
-    /* Recalculate height with updated variables */
-    height: calc(var(--cards) * (var(--card-height) + var(--cardMargin)) + var(--cardTopPadding) + var(--cardMargin));
+  .apple-title {
+    font-size: 1.5rem; /* Mobile-friendly */
+  }
+
+  .apple-desc {
+    font-size: 0.9rem; /* Mobile-friendly */
+    margin-top: 8px; /* Space below title */
+    padding-top: 8px; /* Visual separation */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider */
+  }
+
+  .apple-source {
+    font-size: 0.85rem; /* Smaller source */
   }
 }
+
+
 
 
 
@@ -778,7 +842,7 @@ a, button {
 /* Footer */
 .footer {
   position: relative;
-  z-index: 1; /* Above video */
+  z-index: 1000; /* Above video */
   background: rgba(0, 0, 0, 0.9); /* Slightly distinguishable from body */
   padding: 40px 0;
   border-top: 1px solid var(--gray);
@@ -820,6 +884,15 @@ a, button {
 .social-link:hover .social-icon {
   opacity: 1;
 }
+
+.footer-buffer {
+  height: 4rem; /* ~32px, a tiny bit of padding */
+  background: var(--black); /* Matches body background */
+  width: 100%; /* Full width */
+}
+
+
+
 
 /* Toast */
 .toast {
@@ -935,8 +1008,12 @@ a, button {
   text-align: left;
   cursor: pointer;
   transition: var(--transition);
-  padding: 4px 8px;
+  padding: 4px 2px;
   border-radius: 4px;
+  flex: 0 0 auto; 
+  white-space: nowrap;
+  text-align: center;
+  width: 150px; 
 }
 
 .blog-filter-btn:hover,
