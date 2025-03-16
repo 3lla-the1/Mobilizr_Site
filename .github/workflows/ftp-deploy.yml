@@ -1,0 +1,22 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut koden
+        uses: actions/checkout@v2
+      
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          ftp-server: ftp://${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./                 # Mappen med dina filer (anpassa vid behov)
+          server-dir: /public_html/     # Mappen på servern där filerna ska placeras
