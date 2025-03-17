@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modals
   const modals = {
     problem: {
-      open: document.getElementById('problem-btn'),
+      open: document.getElementById('problem-btn'), // Now in navbar
       modal: document.getElementById('problem-modal'),
       close: document.getElementById('close-problem-modal'),
       form: document.getElementById('problem-form'),
     },
     meet: {
-      open: document.querySelector('.meet-btn'),
+      open: document.getElementById('meet-btn'), // Now in hero
       modal: document.getElementById('meet-modal'),
       close: document.getElementById('close-meet-modal'),
       form: document.getElementById('meet-form'),
@@ -95,24 +95,34 @@ document.addEventListener('DOMContentLoaded', () => {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = new FormData(form);
-        fetch(form === modals.problem.form ? 'http://localhost:8081/submit-problem' :
-              form === modals.meet.form ? 'http://localhost:8081/connect' :
-              'http://localhost:8081/subscribe', {
+        const url = form === modals.problem.form ? '/submit_problem.php' :
+                    form === modals.meet.form ? '/submit_meet.php' :
+                    '/submit_newsletter.php'; // Add this if you create a newsletter script
+        const options = {
           method: 'POST',
           body: form === modals.problem.form ? data : JSON.stringify(Object.fromEntries(data)),
           headers: form === modals.problem.form ? {} : { 'Content-Type': 'application/json' },
-        })
-        .then(res => res.json())
-        .then(() => {
-          form.reset();
-          closeModal(modal);
-          showToast('Thanks for sharing!');
-          confetti({ particleCount: 100, spread: 70 });
-        })
-        .catch(err => {
-          console.error(err);
-          showToast('Oops, something went wrong.');
-        });
+        };
+  
+        fetch(url, options)
+          .then((res) => {
+            if (!res.ok) throw new Error('Network response was not ok');
+            return res.json();
+          })
+          .then((response) => {
+            if (response.status === 'success') {
+              form.reset();
+              closeModal(modal);
+              showToast(response.message);
+              confetti({ particleCount: 100, spread: 70 });
+            } else {
+              throw new Error(response.message);
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            showToast('Oops, something went wrong.');
+          });
       });
     }
   }
@@ -147,10 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cards.forEach((card, index) => {
         const cardPos = (index * cardVisibleHeight) - scroll; // Position relative to scroll
         if (cardPos < 0) {
-          // Card is above the visible area, stack it up
           card.style.transform = `translateY(${cardPos}px)`;
         } else {
-          // Card is in or below the visible area, keep it at the top
           card.style.transform = `translateY(0)`;
         }
       });

@@ -21,8 +21,10 @@
         </div>
         <div class="nav-items" id="nav-items">
           <a href="team.html" class="nav-link">Team</a>
+          <!-- BLOG IS SAVED FOR LATER AND COMMENT OUT -->
           <!-- <a href="blog.html" class="nav-link">Blog</a> -->
-          <button class="btn btn-primary meet-btn">Connect</button>
+          <!-- Changed to "Share a Challenge" and updated ID -->
+          <button id="problem-btn" class="btn btn-primary meet-btn">Share a Challenge</button>
         </div>
         <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
           <span class="bar"></span>
@@ -39,9 +41,10 @@
         Your browser doesn’t support video.
       </video>
       <div class="hero-content">
-        <h1 class="hero-title">We're Obsessed with Workforce Mobility</h1>
+        <h1 class="hero-title">We're Crazy About Workforce Mobility</h1>
         <p class="hero-subtitle">Building an ecosystem in motion</p>
-        <button id="problem-btn" class="btn btn-primary hero-btn">Share a Challenge</button>
+        <!-- Changed to "Book a Meeting" and updated ID -->
+        <button id="meet-btn" class="btn btn-primary hero-btn">Join our pilot</button>
       </div>
     </header>
 
@@ -61,7 +64,6 @@
       </div>
     </div>
   
-
     <!-- Scrollable Problem Highlights -->
     <section id="problems" class="problems-section">
       <div class="problems-container">
@@ -75,17 +77,15 @@
               </div>
             </div>
           </li>
-
           <li class="problem-card" id="problem2">
             <div class="problem-card-body" style="background-image: url('assets/problems/welder.png');">
               <div class="apple-overlay">
                 <h2 class="apple-title">8/10 Swedish companies want to grow – but can’t find talent</h2>
-                <p class="apple-desc">Firms are desperate to grow yet starved for skilled workers—we dont educate enough in those niches.</p>
-                <a href="https://www.svt.se/nyheter/ekonomi/8-av-10-foretag-vill-vaxa-men-hittar-inte-personal" target="_blank" class="apple-source" target="_blank" class="apple-source">Source: SVT Nyheter</a>
+                <p class="apple-desc">Companies are pushing for growth but struggling to find the skilled talent they need—education and training haven't kept pace with industry demand.</p>
+                <a href="https://www.svt.se/nyheter/ekonomi/8-av-10-foretag-vill-vaxa-men-hittar-inte-personal" target="_blank" class="apple-source">Source: SVT Nyheter</a>
               </div>
             </div>
           </li>
-
           <li class="problem-card" id="problem3">
             <div class="problem-card-body" style="background-image: url('assets/problems/stockholm.png');">
               <div class="apple-overlay">
@@ -95,7 +95,6 @@
               </div>
             </div>
           </li>
-
           <li class="problem-card" id="problem4">
             <div class="problem-card-body" style="background-image: url('assets/problems/students.png');">
               <div class="apple-overlay">
@@ -105,31 +104,30 @@
               </div>
             </div>
           </li>
-
         </ul>
       </div>
     </section>
 
-
-      <!-- Meet Modal -->
-      <div id="meet-modal" class="modal">
-        <div class="modal-content">
-          <button id="close-meet-modal" class="close-btn" aria-label="Close">×</button>
-          <h2 class="modal-title">Grab a moment with us: Let’s Talk Mobility</h2>
-          <p class="modal-subtitle">Want to hop on the movement-be part of building? Have questions? Chat? Send us a time you can</p>
-          <form id="meet-form" class="modal-form">
-            <input type="text" id="meet-name" class="input-field" placeholder="Your name" required />
-            <input type="email" id="meet-email" class="input-field" placeholder="Your email" />
-            <input type="tel" id="meet-phone" class="input-field" placeholder="Your phone" />
-            <div id="meet-time-slots">
-              <input type="datetime-local" id="meet-time1" class="input-field" required />
-            </div>
-            <button type="button" id="add-meet-time" class="btn btn-outline">+ Add Another Possible Time (like so we can choose)</button>
-            <textarea id="meet-notes" class="input-field" placeholder="What should we know beforehand?" rows="4"></textarea>
-            <button type="submit" class="btn btn-primary">Mobilize Me!</button>
-          </form>
-        </div>
+    <!-- Meet Modal (Apple-Styled) -->
+<div id="meet-modal" class="modal">
+  <div class="modal-content apple-modal">
+    <button id="close-meet-modal" class="close-btn apple-close" aria-label="Close">×</button>
+    <h2 class="modal-title apple-title">Join Our Pilot</h2>
+    <p class="modal-subtitle apple-subtitle">If you're a company dealing with work permits or an individual moving for opportunities, we want you in our pilot. Test our tech, shape the future of global mobility, and help us build something that actually works—free.</p>
+    <form id="meet-form" class="modal-form apple-form">
+      <input type="text" id="meet-name" class="input-field apple-input" placeholder="Your name" required />
+      <input type="email" id="meet-email" class="input-field apple-input" placeholder="Your email" required />
+      <input type="tel" id="meet-phone" class="input-field apple-input" placeholder="Your phone" required />
+      <div id="meet-time-slots" class="apple-time-slots">
+        <label class="apple-label">Pick a time to chat:</label>
+        <input type="datetime-local" id="meet-time1" class="input-field apple-input" required />
       </div>
+      <button type="button" id="add-meet-time" class="btn btn-outline apple-btn-outline">+ Add Another Time</button>
+      <textarea id="meet-notes" class="input-field apple-textarea" placeholder="Tell us about you." rows="4" required></textarea>
+      <button type="submit" class="btn btn-primary apple-btn">Let’s Build Together</button>
+    </form>
+  </div>
+</div>
 
     <!-- Toast -->
     <div id="toast" class="toast hidden"></div>
