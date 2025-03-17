@@ -54,13 +54,14 @@
         <button id="close-problem-modal" class="close-btn" aria-label="Close">×</button>
         <h2 class="modal-title">Your Challenge Drives Us</h2>
         <p class="modal-subtitle">What’s slowing you down? What’s repetitive or unclear? Tell us—text, files, whatever’s bugging you. We listen and act.</p>
-        <form id="problem-form" class="modal-form">
-          <textarea id="problem-desc" class="input-field" placeholder="Describe it..." rows="4" required></textarea>
-          <label for="problem-files" class="file-label">Attach files (PDFs, images, etc.)</label>
-          <input type="file" id="problem-files" class="input-file" multiple accept=".pdf,.jpg,.png,.docx" />
-          <input type="email" id="problem-email" class="input-field" placeholder="Your email (optional)" />
-          <button type="submit" class="btn btn-primary">Add to the Movement</button>
-        </form>
+        <!-- Problem Modal -->
+          <form id="problem-form" class="modal-form">
+            <textarea id="problem-desc" name="problem-desc" class="input-field" placeholder="Describe it..." rows="4" required></textarea>
+            <label for="problem-files" class="file-label">Attach files (PDFs, images, etc.)</label>
+            <input type="file" id="problem-files" name="problem-files[]" class="input-file" multiple accept=".pdf,.jpg,.png,.docx" />
+            <input type="email" id="problem-email" name="problem-email" class="input-field" placeholder="Your email (optional)" />
+            <button type="submit" class="btn btn-primary">Add to the Movement</button>
+          </form>
       </div>
     </div>
   
@@ -114,18 +115,19 @@
     <button id="close-meet-modal" class="close-btn apple-close" aria-label="Close">×</button>
     <h2 class="modal-title apple-title">Join Our Pilot</h2>
     <p class="modal-subtitle apple-subtitle">If you're a company dealing with work permits or an individual moving for opportunities, we want you in our pilot. Test our tech, shape the future of global mobility, and help us build something that actually works—free.</p>
-    <form id="meet-form" class="modal-form apple-form">
-      <input type="text" id="meet-name" class="input-field apple-input" placeholder="Your name" required />
-      <input type="email" id="meet-email" class="input-field apple-input" placeholder="Your email" required />
-      <input type="tel" id="meet-phone" class="input-field apple-input" placeholder="Your phone" required />
-      <div id="meet-time-slots" class="apple-time-slots">
-        <label class="apple-label">Pick a time to chat:</label>
-        <input type="datetime-local" id="meet-time1" class="input-field apple-input" required />
-      </div>
-      <button type="button" id="add-meet-time" class="btn btn-outline apple-btn-outline">+ Add Another Time</button>
-      <textarea id="meet-notes" class="input-field apple-textarea" placeholder="Tell us about you." rows="4" required></textarea>
-      <button type="submit" class="btn btn-primary apple-btn">Let’s Build Together</button>
-    </form>
+    <!-- Meet Modal -->
+      <form id="meet-form" class="modal-form apple-form">
+        <input type="text" id="meet-name" name="meet-name" class="input-field apple-input" placeholder="Your name" required />
+        <input type="email" id="meet-email" name="meet-email" class="input-field apple-input" placeholder="Your email" required />
+        <input type="tel" id="meet-phone" name="meet-phone" class="input-field apple-input" placeholder="Your phone" required />
+        <div id="meet-time-slots" class="apple-time-slots">
+          <label class="apple-label">Pick a time to chat:</label>
+          <input type="datetime-local" id="meet-time1" name="meet-time1" class="input-field apple-input" required />
+        </div>
+        <button type="button" id="add-meet-time" class="btn btn-outline apple-btn-outline">+ Add Another Time</button>
+        <textarea id="meet-notes" name="meet-notes" class="input-field apple-textarea" placeholder="Tell us about you." rows="4" required></textarea>
+        <button type="submit" class="btn btn-primary apple-btn">Let’s Build Together</button>
+      </form>
   </div>
 </div>
 
