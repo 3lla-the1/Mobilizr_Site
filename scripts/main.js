@@ -93,45 +93,49 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(modal);
       });
     }
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const url = form === modals.problem.form ? '/submit_problem.php' :
-                    form === modals.meet.form ? '/submit_meet.php' :
-                    '/submit_newsletter.php'; // Add this if you create a newsletter script
-        const options = {
-          method: 'POST',
-          body: form === modals.problem.form ? data : JSON.stringify(Object.fromEntries(data)),
-          headers: form === modals.problem.form ? {} : { 'Content-Type': 'application/json' },
-        };
-  
-        fetch(url, options)
-          .then((res) => {
-            if (!res.ok) throw new Error('Network response was not ok');
-            return res.json();
-          })
-          .then((response) => {
-            if (response.status === 'success') {
-              form.reset();
-              closeModal(modal);
-              showToast(response.message);
-              confetti({ particleCount: 100, spread: 70 });
-            } else {
-              throw new Error(response.message);
-            }
-          })
-          .catch((err) => {
-            console.error(err);
-            showToast('Oops, something went wrong.');
-          });
-      });
-    }
-  }
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          console.log('Form submitted:', form.id); // Add this
+          const data = new FormData(form);
+          const url = form === modals.problem.form ? '/submit_problem.php' :
+                      form === modals.meet.form ? '/submit_meet.php' :
+                      '/submit_newsletter.php';
+          console.log('Sending to:', url, 'with data:', form === modals.problem.form ? data : Object.fromEntries(data)); // Add this
+          const options = {
+            method: 'POST',
+            body: form === modals.problem.form ? data : JSON.stringify(Object.fromEntries(data)),
+            headers: form === modals.problem.form ? {} : { 'Content-Type': 'application/json' },
+          };
+      
+          fetch(url, options)
+            .then((res) => {
+              console.log('Response status:', res.status); // Add this
+              if (!res.ok) throw new Error('Network response was not ok');
+              return res.json();
+            })
+            .then((response) => {
+              console.log('Response data:', response); // Add this
+              if (response.status === 'success') {
+                form.reset();
+                closeModal(modal);
+                showToast(response.message);
+                confetti({ particleCount: 100, spread: 70 });
+              } else {
+                throw new Error(response.message);
+              }
+            })
+            .catch((err) => {
+              console.error('Fetch error:', err);
+              showToast('Oops, something went wrong.');
+            });
+        });
+      }
 
-  function closeModal(modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
+    function closeModal(modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
   // Add meeting time slots

@@ -32,9 +32,8 @@ try {
     }
 
     // Insert into database
-    $stmt = $pdo->prepare("INSERT INTO submissions (name, email, phone, time_slots, notes) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$name, $email, $phone, $timeSlots, $notes]);
-
+    $stmt = $pdo->prepare("INSERT INTO submissions (form_type, name, email, phone, time_slots, notes) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->execute(['meet', $name, $email, $phone, $timeSlots, $notes]);
     // Success response
     echo json_encode(['status' => 'success', 'message' => 'Submission received']);
 } catch (Exception $e) {
