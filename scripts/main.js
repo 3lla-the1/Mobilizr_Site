@@ -74,8 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modal handler
   function handleModal(modalObj) {
     const { open, modal, close, form } = modalObj;
+    console.log('Attaching listener to:', open); // Add this
     if (open && modal) {
       open.addEventListener('click', () => {
+        console.log('Button clicked:', open.id); // Add this
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
       });
