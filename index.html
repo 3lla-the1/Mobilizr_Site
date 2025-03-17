@@ -110,26 +110,26 @@
     </section>
 
     <!-- Meet Modal (Apple-Styled) -->
-<div id="meet-modal" class="modal">
-  <div class="modal-content apple-modal">
-    <button id="close-meet-modal" class="close-btn apple-close" aria-label="Close">×</button>
-    <h2 class="modal-title apple-title">Join Our Pilot</h2>
-    <p class="modal-subtitle apple-subtitle">If you're a company dealing with work permits or an individual moving for opportunities, we want you in our pilot. Test our tech, shape the future of global mobility, and help us build something that actually works—free.</p>
-    <!-- Meet Modal -->
-      <form id="meet-form" class="modal-form apple-form">
-        <input type="text" id="meet-name" name="meet-name" class="input-field apple-input" placeholder="Your name" required />
-        <input type="email" id="meet-email" name="meet-email" class="input-field apple-input" placeholder="Your email" required />
-        <input type="tel" id="meet-phone" name="meet-phone" class="input-field apple-input" placeholder="Your phone" required />
-        <div id="meet-time-slots" class="apple-time-slots">
-          <label class="apple-label">Pick a time to chat:</label>
-          <input type="datetime-local" id="meet-time1" name="meet-time1" class="input-field apple-input" required />
-        </div>
-        <button type="button" id="add-meet-time" class="btn btn-outline apple-btn-outline">+ Add Another Time</button>
-        <textarea id="meet-notes" name="meet-notes" class="input-field apple-textarea" placeholder="Tell us about you." rows="4" required></textarea>
-        <button type="submit" class="btn btn-primary apple-btn">Let’s Build Together</button>
-      </form>
-  </div>
-</div>
+    <div id="meet-modal" class="modal">
+      <div class="modal-content apple-modal">
+        <button id="close-meet-modal" class="close-btn apple-close" aria-label="Close">×</button>
+        <h2 class="modal-title apple-title">Join Our Pilot</h2>
+        <p class="modal-subtitle apple-subtitle">If you're a company dealing with work permits or an individual moving for opportunities, we want you in our pilot. Test our tech, shape the future of global mobility, and help us build something that actually works—free.</p>
+        <!-- Meet Modal -->
+          <form id="meet-form" class="modal-form apple-form">
+            <input type="text" id="meet-name" name="meet-name" class="input-field apple-input" placeholder="Your name" required />
+            <input type="email" id="meet-email" name="meet-email" class="input-field apple-input" placeholder="Your email" required />
+            <input type="tel" id="meet-phone" name="meet-phone" class="input-field apple-input" placeholder="Your phone" required />
+            <div id="meet-time-slots" class="apple-time-slots">
+              <label class="apple-label">Pick a time to chat:</label>
+              <input type="datetime-local" id="meet-time1" name="meet-time1" class="input-field apple-input" required />
+            </div>
+            <button type="button" id="add-meet-time" class="btn btn-outline apple-btn-outline">+ Add Another Time</button>
+            <textarea id="meet-notes" name="meet-notes" class="input-field apple-textarea" placeholder="Tell us about you." rows="4" required></textarea>
+            <button type="submit" class="btn btn-primary apple-btn">Let’s Build Together</button>
+          </form>
+      </div>
+    </div>
 
     <!-- Toast -->
     <div id="toast" class="toast hidden"></div>
@@ -158,10 +158,12 @@
       <div class="container">
         <p class="footer-text">© <span id="current-year"></span> Mobilizr.</p>
         <div class="footer-links">
-          <a href="#" id="newsletter-link" class="footer-link">Newsletter</a>
-          <a href="#" class="footer-link social-link"><img src="assets/logos/x-logo.png" alt="X" class="social-icon" /></a>
-          <a href="#" class="footer-link social-link"><img src="assets/logos/linkedin-logo.png" alt="LinkedIn" class="social-icon" /></a>
-          <a href="#" class="footer-link social-link"><img src="assets/logos/instagram-logo.png" alt="Instagram" class="social-icon" /></a>
+          <!-- <a href="#" id="newsletter-link" class="footer-link">Newsletter</a> -->
+          <!-- Kommenterar bort X och Instagram tills vidare -->
+          <!-- <a href="#" class="footer-link social-link"><img src="assets/logos/x-logo.png" alt="X" class="social-icon" /></a> -->
+          <a href="https://www.linkedin.com/company/mobilizr-ai/" class="footer-link social-link" target="_blank"><img src="assets/logos/linkedin-logo.png" alt="LinkedIn" class="social-icon" /></a>
+          <!-- <a href="#" class="footer-link social-link"><img src="assets/logos/instagram-logo.png" alt="Instagram" class="social-icon" /></a> -->
+          <a href="mailto:team@mobilizr.eu" class="footer-link social-link"><img src="assets/logos/email-logo.webp" alt="Email" class="social-icon" /></a>
         </div>
       </div>
     </footer>
