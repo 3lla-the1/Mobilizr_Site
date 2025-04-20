@@ -1,156 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mobilizr - Team</title>
-  <link rel="stylesheet" href="styles/main.css" />
-  <meta name="description" content="Meet the Mobilizr Team" />
-  <meta name="author" content="MOBILIZR TEAM" />
-  <meta property="og:image" content="/og-image.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilizr - Meet Our Team</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/team.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
-  <div id="app">
-    <!-- Navbar -->
-    <header id="navbar">
-      <nav class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="assets/logos/logo.png" alt="Mobilizr Logo" />
-          </a>
+    <!-- Main Navbar -->
+    <nav class="navbar sticky">
+        <div class="container navbar-container">
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html#hero" class="logo-link">
+                    <span class="navbar-logo-text">mobilizr</span>
+                    <img src="assets/logos/logo.png" alt="Mobilizr logo" class="navbar-logo-img fallback">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="product.html">Product</a>
+                <a href="team.html">Team</a>
+                <a href="northvolt.html">Northvolt</a>
+                <button class="get-started-btn" id="open-scheduling-modal">Meet us</button>
+            </div>
         </div>
-        <div class="nav-items" id="nav-items">
-          <a href="team.html" class="nav-link">Team</a>
-          <!-- <a href="blog.html" class="nav-link">Blog</a> -->
-          <button class="btn btn-primary meet-btn">Meet Us</button>
-        </div>
-        <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-      </nav>
-    </header>
+    </nav>
 
     <!-- Team Section -->
     <main class="team-section">
-      <div class="team-video-wrapper">
-        <video autoplay muted loop playsinline class="team-video-bg">
-          <source src="assets/videos/grow.mp4" type="video/mp4">
-          Your browser doesn’t support video.
-        </video>
-      </div>
-      <div class="team-content-wrapper">
-        <div class="team-content container">
-          <h1 class="team-title">The Minds Behind Mobilizr</h1>
-          <p class="team-subtitle">A small team with a big obsession: fixing workforce mobility.</p>
-          <div class="team-grid">
-            <div class="team-member">
-              <div class="team-member-card">
-                <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank" class="team-member-link">
-                  <img src="assets/team/ella.png" alt="Ella Karlsson" class="team-member-img" />
-                </a>
-                <div class="team-member-info">
-                  <h3 class="team-member-name">Ella Karlsson</h3>
-                  <p class="team-member-desc">MSc Industrial Engineering & Management </br> Specializing in Computer Science & Machine Learning</p>
-                  <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+        <div class="container">
+            <h1 class="team-title">The Minds Behind <span>Mobilizr</span></h1>
+            <p class="team-subtitle">A small team with a big obsession: fixing workforce mobility.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank" class="team-member-link">
+                        <img src="assets/team/ella.png" alt="Ella Karlsson" class="team-member-img">
+                    </a>
+                    <div class="team-member-info">
+                        <h2 class="team-member-name">Ella Karlsson</h2>
+                        <p class="team-member-desc">MSc Industrial Engineering & Management<br>Specializing in Computer Science & Machine Learning</p>
+                        <a href="https://www.linkedin.com/in/ella-karlsson" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="team-member">
-              <div class="team-member-card">
-                <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank" class="team-member-link">
-                  <img src="assets/team/ibrahim.png" alt="Ibrahim Diem" class="team-member-img" />
-                </a>
-                <div class="team-member-info">
-                  <h3 class="team-member-name">Ibrahim Diem</h3>
-                  <p class="team-member-desc">2+ years start-up work </br> BA Business & Economics </br> MSc Health Economics</p>
-                  <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank" class="team-member-link">
+                        <img src="assets/team/ibrahim.png" alt="Ibrahim Diem" class="team-member-img">
+                    </a>
+                    <div class="team-member-info">
+                        <h2 class="team-member-name">Ibrahim Diem</h2>
+                        <p class="team-member-desc">2+ years start-up work<br>BA Business & Economics<br>MSc Health Economics</p>
+                        <a href="https://www.linkedin.com/in/ibrahim-diem-7431a61a2/" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="team-member">
-              <div class="team-member-card">
-                <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank" class="team-member-link">
-                  <img src="assets/team/oliver.png" alt="Oliver Jones" class="team-member-img" />
-                </a>
-                <div class="team-member-info">
-                  <h3 class="team-member-name">Oliver Jones</h3>
-                  <p class="team-member-desc">4+ years as Product Manager </br> BA Computer Science </br> MSc Entrepreneurship</p>
-                  <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                <div class="team-member">
+                    <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank" class="team-member-link">
+                        <img src="assets/team/oliver.png" alt="Oliver Jones" class="team-member-img">
+                    </a>
+                    <div class="team-member-info">
+                        <h2 class="team-member-name">Oliver Jones</h2>
+                        <p class="team-member-desc">4+ years as Product Manager<br>BA Computer Science<br>MSc Entrepreneurship</p>
+                        <a href="https://www.linkedin.com/in/oliverwsj/" target="_blank" class="team-member-cta">Connect on LinkedIn</a>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+            <!-- SSE Business Lab Content Box -->
+            <a href="https://www.hhs.se/en/outreach/sse-initiatives/sse-business-lab" target="_blank" class="sse-content">
+                <div class="sse-logo">
+                    <img src="assets/logos/SSEBL.png" alt="SSE Business Lab Logo">
+                </div>
+                <p class="sse-text">Mobilizr is a proud member of SSE Business Lab, ranked as the #1 startup incubator in the Nordics.</p>
+            </a>
         </div>
-        <!-- SSE Business Lab Content Box -->
-        <div class="sse-content container">
-          <div class="sse-logo">
-            <img src="assets/logos/SSEBL.png" alt="SSE Business Lab Logo" />
-          </div>
-          <p class="sse-text">Mobilizr is a proud member of SSE Business Lab, ranked as the #1 startup incubator in the Nordics.</p>
-        </div>
-      </div>
     </main>
 
-    <!-- Newsletter Modal -->
-    <div id="newsletter-modal" class="modal">
-      <div class="modal-content">
-        <button id="close-newsletter-modal" class="close-btn" aria-label="Close">×</button>
-        <h2 class="modal-title">Stay in the Loop</h2>
-        <p class="modal-subtitle">Get the latest on mobility fixes—straight to your inbox.</p>
-        <form id="newsletter-form" class="modal-form">
-          <input type="email" id="newsletter-email" class="input-field" placeholder="Your email" required />
-          <label class="checkbox-label">
-            <input type="checkbox" id="gdpr-consent" class="checkbox" required />
-            I’m cool with updates (<a href="/privacy" class="link">privacy policy</a>)
-          </label>
-          <button type="submit" class="btn btn-primary">Sign Me Up</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Meet Modal -->
-    <div id="meet-modal" class="modal">
-      <div class="modal-content">
-        <button id="close-meet-modal" class="close-btn" aria-label="Close">×</button>
-        <h2 class="modal-title">Let’s Talk Mobility</h2>
-        <p class="modal-subtitle">Got ideas? Questions? Just wanna chat? Pick a time.</p>
-        <form id="meet-form" class="modal-form">
-          <input type="text" id="meet-name" class="input-field" placeholder="Your name" required />
-          <input type="email" id="meet-email" class="input-field" placeholder="Your email (optional)" />
-          <input type="tel" id="meet-phone" class="input-field" placeholder="Your phone (optional)" />
-          <div id="meet-time-slots">
-            <input type="datetime-local" id="meet-time1" class="input-field" required />
-          </div>
-          <button type="button" id="add-meet-time" class="btn btn-outline">+ Add Time</button>
-          <textarea id="meet-notes" class="input-field" placeholder="What’s on your mind?" rows="4"></textarea>
-          <button type="submit" class="btn btn-primary">Book It</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Toast -->
-    <div id="toast" class="toast hidden"></div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p class="footer-text">© <span id="current-year"></span> Mobilizr.</p>
-        <div class="footer-links">
-          <!-- <a href="#" id="newsletter-link" class="footer-link">Newsletter</a> -->
-          <!-- Kommenterar bort X och Instagram tills vidare -->
-          <!-- <a href="#" class="footer-link social-link"><img src="assets/logos/x-logo.png" alt="X" class="social-icon" /></a> -->
-          <a href="https://www.linkedin.com/company/mobilizr-ai/" class="footer-link social-link" target="_blank"><img src="assets/logos/linkedin-logo.png" alt="LinkedIn" class="social-icon" /></a>
-          <!-- <a href="#" class="footer-link social-link"><img src="assets/logos/instagram-logo.png" alt="Instagram" class="social-icon" /></a> -->
-          <a href="mailto:team@mobilizr.eu" class="footer-link social-link"><img src="assets/logos/email-logo.webp" alt="Email" class="social-icon" /></a>
+    <!-- Story Navigation -->
+    <div class="story-container">
+        <div class="feature-nav" id="story-nav">
+            <div class="feature-nav-container">
+                <span class="section-indicators">
+                    <span class="indicator" data-section="story1">01</span>
+                    <span class="indicator" data-section="story2">02</span>
+                    <span class="indicator" data-section="story3">03</span>
+                    <span class="indicator" data-section="story4">04</span>
+                </span>
+                <span class="section-title">Where It Began</span>
+            </div>
         </div>
-      </div>
-    </footer>
-  </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="scripts/main.js" defer></script>
+        <!-- Story Section 1 -->
+        <section id="story1" class="content-section">
+            <div class="section-image">
+                <a href="https://www.hhs.se/en/outreach/sse-initiatives/sse-business-lab/programs/ideate/" target="_blank">
+                    <img src="assets/mission/Elsa.png" alt="Where It Began">
+                </a>
+            </div>
+            <div class="section-text">
+                <h2>Where It Began</h2>
+                <p>In fall 2024, we met through the Ideate program, a brilliant mix of students from KTH, 
+                    Stockholm School of Economics, Karolinska Institutet, and GIH. The three of us aligned quickly;
+                    unified on pace, mindset, and the desire to build something real.
+                    We dove into Sweden’s healthcare sector, talking to companies, hospitals, and 
+                    researchers. We asked way too many questions, listened, 
+                    and fell down more than a few rabbit holes—not yet focused on global mobility, but driven to understand the bigger picture.</p>
+            </div>
+        </section>
+
+        <!-- Story Section 2 -->
+        <section id="story2" class="content-section reverse">
+            <div class="section-image">
+                <img src="assets/mission/ideas.png" alt="The Spark">
+            </div>
+            <div class="section-text">
+                <h2>The Spark</h2>
+                <p>We had a plenty of ideas. Solving scheduling for hospitals. A smart language 
+                    system to help international doctors hit the ground running. A unified 
+                    medical record for vaccinations (because yes, it’s still scattered 
+                    across providers in Sweden). Even preventive health tech for pets.
+
+                    But the more people we talked to, the more one pattern kept showing up. 
+                    Whether it was healthcare, tech, public agencies, or startups, we kept 
+                    hearing the same thing: “We can’t find the talent we need.” <br>
+                    <br>
+
+                    But talent was not lacking, it was locked.
+                    The real challenge was access; systems built to move bright minds were slow, 
+                    fragmented, and full of friction. 
+                    That sparked the question: What if we could change that?
+                    </p>
+            </div>
+        </section>
+
+        <!-- Story Section 3 -->
+        <section id="story3" class="content-section">
+            <div class="section-image">
+                <img src="assets/mission/work.png" alt="Redefining Mobility">
+            </div>
+            <div class="section-text">
+                <h2>Redefining Mobility</h2>
+                <p>
+                    How can we be the change we wish to see in the world?
+                    How do we fuel innovation?
+
+                    The more we iterate and listen, the clearer it becomes:
+                    It starts with people.
+
+                    If we want progress, we must trust in people’s capacity to lead it.
+                    
+                    <br><br>
+                    We are butilding Mobilizr because we believe belonging transcends geography, 
+                    language, or a passport — it’s the opportunity to contribute and be part 
+                    of something greater than oneself.
+                    As dreamers and founders, we are united by a shared belief in movement.
+                    
+                </p>
+            </div>
+        </section>
+
+        <!-- Story Section 4 -->
+        <section id="story4" class="content-section reverse">
+            <div class="section-image">
+                <img src="assets/mission/teamActivate.png" alt="A World in Motion">
+            </div>
+            <div class="section-text">
+                <h2>A World in Motion</h2>
+                <p>We see it clearly: the power in people. 
+                    Our mission is to streamline global mobility, and Mobilizr is the engine that empowers companies to welcome
+                    exceptional talent. 
+                </p>
+            </div>
+        </section>
+    </div>    
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h1 class="values-title">Team values</h1>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h2 class="value-title">Communication</h2>
+                    <p class="value-desc">We listen and take pride in fostering an open culture where every voice has space to be heard.</p>
+                </div>
+                <div class="value-item">
+                    <h2 class="value-title">Ownership</h2>
+                    <p class="value-desc">We take initiative, lead with intent, and stay fully engaged in the journey we’re shaping together.</p>
+                </div>
+                <div class="value-item">
+                    <h2 class="value-title">Trust</h2>
+                    <p class="value-desc">We are clear in our commitments and honest about our outcomes. All cards on the table.</p>
+                </div>
+                <div class="value-item">
+                    <h2 class="value-title">Diversity</h2>
+                    <p class="value-desc">Out greatest strength is how we bring together different backgrounds, skills, and ways of thinking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Section -->
+    <section class="recruitment-section">
+        <div class="container">
+            <h2>Join Our Mission</h2>
+            <p>If you care about movement, clarity, and building systems that scale, we’d love to meet you.</p>
+            <button id="join-us-btn" class="recruitment-cta">Join Us</button>
+        </div>
+    </section>
+
+    <!-- Modal for NeetoCal Scheduling -->
+    <div class="modal" id="scheduling-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-scheduling-modal">×</span>
+            <iframe 
+                src="https://mobilizr.neetocal.com/meeting-with-ella-karlsson" 
+                class="modal-iframe"
+                title="Schedule a meeting with Ella Karlsson"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <video id="footer-logo-video" autoplay muted loop playsinline class="footer-logo-img">
+                    <source src="assets/logo.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Overview</h3>
+                    <a href="product.html">Product</a>
+                    <a href="team.html">Team</a>
+                    <a href="northvolt.html">Northvolt</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <a href="https://www.linkedin.com/company/mobilizr-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:team@mobilizr.eu">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>AI-Powered<br>Global Mobility</p>
+            </div>
+            <div class="footer-bottom-right">
+                <p>2025<br>All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/team.js"></script>
 </body>
 </html>

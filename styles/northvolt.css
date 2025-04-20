@@ -1,0 +1,518 @@
+/* Page-specific styles for northvolt.html */
+
+/* Hero Section */
+.hero-section {
+    height: calc(100vh - var(--navbar-height));
+    padding: var(--spacing-md) 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(245, 245, 245, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border-bottom: 1px solid var(--text-gray);
+}
+
+.hero-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-sm);
+}
+
+.hero-content {
+    flex: 0 0 100%;
+    align-self: center;
+    text-align: left;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.hero-image-slideshow {
+    flex: 0 0 50%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    max-height: 400px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Video Overlay for Contrast */
+.hero-image-slideshow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.hero-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem; /* Reduced horizontal padding to keep buttons compact */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 160px; /* Fixed width to ensure both buttons are the same size */
+    text-align: center;
+    word-wrap: break-word; /* Allow text to wrap if needed */
+}
+
+.hero-btn:hover {
+    background-color: #333;
+}
+
+.hero-btn:active {
+    background-color: #333;
+}
+
+/* FAQ Sections */
+.faq-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+    background: #fff;
+    border-radius: 8px;
+    margin: var(--spacing-md) auto;
+    max-width: 1200px;
+}
+
+.faq-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: #333;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: var(--spacing-sm) 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--accent-color);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.faq-answer p, .faq-answer ul {
+    padding: 0 var(--spacing-sm);
+    margin: 0;
+}
+
+.faq-answer ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.faq-answer ul li {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer ul li::before {
+    content: '•';
+    position: absolute;
+    left: -1.5rem;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.faq-answer.active {
+    max-height: 500px; /* Adjust based on content */
+    padding: var(--spacing-sm) 0;
+}
+
+.faq-answer .apply-btn {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    text-decoration: none;
+}
+
+/* Content Sections (kept for compatibility) */
+.content-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    min-height: 80vh;
+    gap: var(--spacing-lg);
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+}
+
+.content-section.reverse {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.content-section .section-text {
+    max-width: 440px;
+    flex: 0 0 440px;
+}
+
+.content-section .section-image {
+    max-width: 664px;
+    flex: 0 0 664px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section .section-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+}
+
+.content-section .section-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.content-section .section-text ul,
+.content-section .section-text ol {
+    list-style: none;
+    padding: 0;
+}
+
+.content-section .section-text ul li,
+.content-section .section-text ol li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.content-section .section-text ul li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.content-section .section-text ol li:before {
+    content: counter(list-item) '.';
+    counter-increment: list-item;
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.content-section .section-text ol {
+    counter-reset: list-item;
+}
+
+.apply-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: var(--spacing-md);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:hover {
+    background-color: #333;
+}
+
+.apply-btn:active {
+    background-color: #333;
+}
+
+/* Info Session Section (kept for compatibility) */
+.info-session {
+    background-color: var(--complimentary-bg);
+    padding: var(--spacing-lg) var(--spacing-sm);
+    text-align: center;
+    border-radius: 8px;
+    margin: var(--spacing-md) auto;
+    max-width: 1200px;
+}
+
+.info-session h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.info-session p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.info-session a.apply-btn {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Contact Section (kept for compatibility) */
+.contact-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+    text-align: center;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin: var(--spacing-md) auto;
+    max-width: 1200px;
+}
+
+.contact-section h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.contact-form input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form button:hover {
+    background-color: #333;
+}
+
+.contact-form button:active {
+    background-color: #333;
+}
+
+/* Tally Popup Styling */
+.tally-popup {
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8 !important;
+    z-index: 10000 !important;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: var(--spacing-lg) 0;
+        height: auto;
+        min-height: calc(100vh - var(--navbar-height));
+    }
+
+    .hero-section .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 var(--spacing-md); /* Increase padding for more space */
+        height: auto;
+        gap: var(--spacing-md);
+        width: 100%;
+    }
+
+    .hero-inner {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-content {
+        flex: 0 0 auto;
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 var(--spacing-md); /* Add padding for breathing room */
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .hero-btn {
+        padding: 0.5rem 0.8rem; /* Adjusted padding for smaller screens */
+        font-size: 0.85rem;
+        width: 140px; /* Adjusted fixed width for smaller screens */
+    }
+
+    .hero-image-slideshow {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        aspect-ratio: 16 / 9;
+        max-height: 300px;
+        margin: var(--spacing-md) auto;
+    }
+
+    .faq-section h2 {
+        font-size: 2rem;
+    }
+
+    .faq-question {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-buttons {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .hero-btn {
+        padding: 0.4rem 0.6rem; /* Further reduced padding for very small screens */
+        font-size: 0.8rem;
+        width: 120px; /* Further adjusted fixed width */
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 var(--spacing-md); /* Increase padding for better spacing */
+    }
+
+    .hero-image-slideshow {
+        max-width: 100%;
+        max-height: 250px;
+    }
+
+    .faq-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .faq-question {
+        font-size: 1.2rem;
+    }
+
+    .faq-answer {
+        font-size: 0.85rem;
+    }
+}

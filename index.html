@@ -1,175 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mobilizr</title>
-  <link rel="stylesheet" href="styles/main.css" />
-  <meta name="description" content="Streamlining Workforce Mobility" />
-  <meta name="author" content="Mobilizr Team" />
-  <meta property="og:image" content="/og-image.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilizr - Unleash Your Global Edge</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Google Fonts for Playfair Display and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Typeform Embed Script -->
+    <script src="//embed.typeform.com/next/embed.js"></script>
 </head>
 <body>
-  <div id="app">
-    <!-- Navbar -->
-    <header id="navbar">
-      <nav class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="assets/logos/logo.png" alt="Mobilizr Logo" />
-          </a>
+    <!-- Main Navbar -->
+    <nav class="navbar sticky">
+        <div class="container navbar-container">
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html#hero" class="logo-link">
+                    <span class="navbar-logo-text">mobilizr</span>
+                    <img src="assets/logos/logo.png" alt="Mobilizr logo" class="navbar-logo-img fallback">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="product.html">Product</a>
+                <a href="team.html">Team</a>
+                <a href="northvolt.html">Northvolt</a>
+                <button class="get-started-btn" id="open-scheduling-modal">Meet us</button>
+            </div>
         </div>
-        <div class="nav-items" id="nav-items">
-          <a href="team.html" class="nav-link">Team</a>
-          <!-- BLOG IS SAVED FOR LATER AND COMMENT OUT -->
-          <!-- <a href="blog.html" class="nav-link">Blog</a> -->
-          <!-- Changed to "Share a Challenge" and updated ID -->
-          <button id="problem-btn" class="btn btn-primary meet-btn">Share a Challenge</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1>Unleash Your<br><span>Global Edge</span></h1>
+                    <p>Mobilizr is the AI-native platform reimagining how companies navigate global mobility, turning fragmented workflows, shifting policies, and legal bottlenecks into streamlined, intelligent infrastructure.</p>
+                    <button class="begin-btn" data-tf-popup="dLfq5wH4" data-tf-opacity="100" data-tf-size="70">Start Your Journey</button>
+                </div>
+            </div>
+            <div class="hero-image-slideshow">
+                <!-- Slides -->
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/flag.jpg" class="hero-slide active" alt="Slide 1">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/engineer-4701997_1280.jpg" class="hero-slide" alt="Slide 2">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/desola-lanre-ologun-IgUR1iX0mqM-unsplash.jpg" class="hero-slide" alt="Slide 3">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/thisisengineering-vEoMKBdUIzs-unsplash.jpg" class="hero-slide" alt="Slide 4">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/christina-wocintechchat-com-x7sp9JC3N3A-unsplash.jpg" class="hero-slide" alt="Slide 5">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/annie-spratt-QckxruozjRg-unsplash.jpg" class="hero-slide" alt="Slide 6">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/engineer-4922410_1280.jpg" class="hero-slide" alt="Slide 7">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/engineer-4922797_1920.jpg" class="hero-slide" alt="Slide 8">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/engineer-4927728_1280.jpg" class="hero-slide" alt="Slide 9">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/flag2.jpg" class="hero-slide" alt="Slide 10">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/christina-wocintechchat-com-c5pRBXFhJgo-unsplash.jpg" class="hero-slide" alt="Slide 11">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/thisisengineering-lr5RHwBmrbs-unsplash.jpg" class="hero-slide" alt="Slide 12">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/thisisengineering-X7cls0azgKg-unsplash.jpg" class="hero-slide" alt="Slide 13">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/woman-4941164_1920.jpg" class="hero-slide" alt="Slide 14">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/thisisengineering-H4ClLKv3pqw-unsplash.jpg" class="hero-slide" alt="Slide 15">
+                </div>
+                <div class="slide-wrapper">
+                  <img src="/assets/hero_slide/engineer-4941354_1280.jpg" class="hero-slide" alt="Slide 16">
+                </div>
+              
+                <!-- Navigation Dots -->
+                <div class="slideshow-dots">
+                  <span class="dot active" data-slide="0"></span>
+                  <span class="dot" data-slide="1"></span>
+                  <span class="dot" data-slide="2"></span>
+                  <span class="dot" data-slide="3"></span>
+                  <span class="dot" data-slide="4"></span>
+                  <span class="dot" data-slide="5"></span>
+                  <span class="dot" data-slide="6"></span>
+                  <span class="dot" data-slide="7"></span>
+                  <span class="dot" data-slide="8"></span>
+                  <span class="dot" data-slide="9"></span>
+                  <span class="dot" data-slide="10"></span>
+                  <span class="dot" data-slide="11"></span>
+                  <span class="dot" data-slide="12"></span>
+                  <span class="dot" data-slide="13"></span>
+                  <span class="dot" data-slide="14"></span>
+                  <span class="dot" data-slide="15"></span>
+                </div>
+              </div>
+              
         </div>
-        <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-      </nav>
-    </header>
-
-    <!-- Hero Section with Video -->
-    <header id="hero" class="hero-video">
-      <video autoplay muted loop playsinline class="hero-video-bg">
-        <source src="assets/videos/fluid.mp4" type="video/mp4">
-        Your browser doesn’t support video.
-      </video>
-      <div class="hero-content">
-        <h1 class="hero-title">We're Crazy About Workforce Mobility</h1>
-        <p class="hero-subtitle">Building an ecosystem in motion</p>
-        <!-- Changed to "Book a Meeting" and updated ID -->
-        <button id="meet-btn" class="btn btn-primary hero-btn">Join our pilot</button>
-      </div>
-    </header>
-
-    <!-- Problem Collection Modal -->
-    <div id="problem-modal" class="modal">
-      <div class="modal-content">
-        <button id="close-problem-modal" class="close-btn" aria-label="Close">×</button>
-        <h2 class="modal-title">Your Challenge Drives Us</h2>
-        <p class="modal-subtitle">What’s slowing you down? What’s repetitive or unclear? Tell us—text, files, whatever’s bugging you. We listen and act.</p>
-        <!-- Problem Modal -->
-          <form id="problem-form" class="modal-form">
-            <textarea id="problem-desc" name="problem-desc" class="input-field" placeholder="Describe it..." rows="4" required></textarea>
-            <label for="problem-files" class="file-label">Attach files (PDFs, images, etc.)</label>
-            <input type="file" id="problem-files" name="problem-files[]" class="input-file" multiple accept=".pdf,.jpg,.png,.docx" />
-            <input type="email" id="problem-email" name="problem-email" class="input-field" placeholder="Your email (optional)" />
-            <button type="submit" class="btn btn-primary">Add to the Movement</button>
-          </form>
-      </div>
-    </div>
-  
-    <!-- Scrollable Problem Highlights -->
-    <section id="problems" class="problems-section">
-      <div class="problems-container">
-        <ul class="card-stack">
-          <li class="problem-card" id="problem1">
-            <div class="problem-card-body" style="background-image: url('assets/problems/woman.png');">
-              <div class="apple-overlay">
-                <h2 class="apple-title">10M Tech Pros Short in the EU</h2>
-                <p class="apple-desc">The EU envisions 20 million ICT specialists driving its digital future by 2030—a significant leap from today’s 9.8 million.</p>
-                <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Towards_Digital_Decade_targets_for_Europe" target="_blank" class="apple-source">Source: Eurostat</a>
-              </div>
-            </div>
-          </li>
-          <li class="problem-card" id="problem2">
-            <div class="problem-card-body" style="background-image: url('assets/problems/welder.png');">
-              <div class="apple-overlay">
-                <h2 class="apple-title">8/10 Swedish companies want to grow – but can’t find talent</h2>
-                <p class="apple-desc">Companies are pushing for growth but struggling to find the skilled talent they need—education and training haven't kept pace with industry demand.</p>
-                <a href="https://www.svt.se/nyheter/ekonomi/8-av-10-foretag-vill-vaxa-men-hittar-inte-personal" target="_blank" class="apple-source">Source: SVT Nyheter</a>
-              </div>
-            </div>
-          </li>
-          <li class="problem-card" id="problem3">
-            <div class="problem-card-body" style="background-image: url('assets/problems/stockholm.png');">
-              <div class="apple-overlay">
-                <h2 class="apple-title">Talent Drain</h2>
-                <p class="apple-desc">Training each of Sweden’s 6,000 international PhDs costs 5M Swedish crowns—yet only 38% stay after three years. Losing this talent slashes 52B Swedish crowns from GDP annually.</p>
-                <a href="https://www.euraxess.se/sites/default/files/inline-files/St%C3%B6d%20till%20internationella%20juniora%20forskares%20karri%C3%A4rm%C3%B6jligheter%20utanf%C3%B6r%20akademin_rev%20240508.pdf" target="_blank" class="apple-source">Source: Euraxess</a>
-              </div>
-            </div>
-          </li>
-          <li class="problem-card" id="problem4">
-            <div class="problem-card-body" style="background-image: url('assets/problems/students.png');">
-              <div class="apple-overlay">
-                <h2 class="apple-title">The potential return of investing in retention</h2>
-                <p class="apple-desc">In Denmark, it is estimated that if Copenhagen could retain international talents six months longer, it would create an economic advantage of about 850 million euros.</p>
-                <a href="https://linkopingsciencepark.se/wp-content/uploads/2023/12/international-talent-map-1.pdf" target="_blank" class="apple-source">Source: Linköping Science Park</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
     </section>
 
-    <!-- Meet Modal (Apple-Styled) -->
-    <div id="meet-modal" class="modal">
-      <div class="modal-content apple-modal">
-        <button id="close-meet-modal" class="close-btn apple-close" aria-label="Close">×</button>
-        <h2 class="modal-title apple-title">Join Our Pilot</h2>
-        <p class="modal-subtitle apple-subtitle">If you're a company dealing with work permits or an individual moving for opportunities, we want you in our pilot. Test our tech, shape the future of global mobility, and help us build something that actually works—free.</p>
-        <!-- Meet Modal -->
-          <form id="meet-form" class="modal-form apple-form">
-            <input type="text" id="meet-name" name="meet-name" class="input-field apple-input" placeholder="Your name" required />
-            <input type="email" id="meet-email" name="meet-email" class="input-field apple-input" placeholder="Your email" required />
-            <input type="tel" id="meet-phone" name="meet-phone" class="input-field apple-input" placeholder="Your phone" required />
-            <div id="meet-time-slots" class="apple-time-slots">
-              <label class="apple-label">Pick a time to chat:</label>
-              <input type="datetime-local" id="meet-time1" name="meet-time1" class="input-field apple-input" required />
-            </div>
-            <button type="button" id="add-meet-time" class="btn btn-outline apple-btn-outline">+ Add Another Time</button>
-            <textarea id="meet-notes" name="meet-notes" class="input-field apple-textarea" placeholder="Tell us about you." rows="4" required></textarea>
-            <button type="submit" class="btn btn-primary apple-btn">Let’s Build Together</button>
-          </form>
-      </div>
-    </div>
-
-    <!-- Toast -->
-    <div id="toast" class="toast hidden"></div>
-
-    <!-- Newsletter Modal -->
-    <div id="newsletter-modal" class="modal">
-      <div class="modal-content">
-        <button id="close-newsletter-modal" class="close-btn" aria-label="Close">×</button>
-        <h2 class="modal-title">Keep Up with Mobility</h2>
-        <p class="modal-subtitle">Updates on our work, delivered to your inbox</p>
-        <form id="newsletter-form" class="modal-form">
-          <input type="email" id="newsletter-email" class="input-field" placeholder="Your email" required />
-          <label class="checkbox-label">
-            <input type="checkbox" id="gdpr-consent" class="checkbox" required />
-            I’m okay with updates (<a href="/privacy" class="link">privacy policy</a>)
-          </label>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="footer-buffer"></div>
-    
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p class="footer-text">© <span id="current-year"></span> Mobilizr.</p>
-        <div class="footer-links">
-          <!-- <a href="#" id="newsletter-link" class="footer-link">Newsletter</a> -->
-          <!-- Kommenterar bort X och Instagram tills vidare -->
-          <!-- <a href="#" class="footer-link social-link"><img src="assets/logos/x-logo.png" alt="X" class="social-icon" /></a> -->
-          <a href="https://www.linkedin.com/company/mobilizr-ai/" class="footer-link social-link" target="_blank"><img src="assets/logos/linkedin-logo.png" alt="LinkedIn" class="social-icon" /></a>
-          <!-- <a href="#" class="footer-link social-link"><img src="assets/logos/instagram-logo.png" alt="Instagram" class="social-icon" /></a> -->
-          <a href="mailto:team@mobilizr.eu" class="footer-link social-link"><img src="assets/logos/email-logo.webp" alt="Email" class="social-icon" /></a>
+    <!-- Feature Nav -->
+    <div class="feature-nav" id="feature-nav">
+        <div class="feature-nav-container">
+            <span class="section-indicators">
+                <span class="indicator" data-section="section1">01</span>
+                <span class="indicator" data-section="section2">02</span>
+                <span class="indicator" data-section="section3">03</span>
+                <span class="indicator" data-section="section4">04</span>
+            </span>
+            <span class="section-title">Work Permit Engine</span>
         </div>
-      </div>
-    </footer>
-  </div>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="scripts/main.js" defer></script>
+    <!-- Section 1: Move with Clarity -->
+    <section id="section1" class="content-section">
+        <div class="section-image">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;" aria-label="Animation of Mobilizr's Work Permit Engine in action">
+                <source src="/assets/content_section/list.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section-text">
+            <h2>Move with <span>Clarity</span></h2>
+            <p>Mobilizr’s Work Permit Engine helps you design, automate, and manage every step of global hiring — from country-specific logic to real-time application tracking. Navigate bureaucracy with precision.</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Give Talent a Better Start -->
+    <section id="section2" class="content-section reverse">
+        <div class="section-image">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;" aria-label="Document Guidance">
+                <source src="/assets/content_section/doc.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section-text">
+            <h2>Give Talent a <span>Better Start</span></h2>
+            <p>From onboarding checklists to document guidance, Mobilizr helps international candidates feel confident and clear — from offer to arrival.</p>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3" class="content-section">
+        <div class="section-image">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;" aria-label="Support and Definitions">
+                <source src="/assets/content_section/chat.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section-text">
+            <h2>Expand with <span>Ease</span></h2>
+            <p>Streamline your global expansion with Mobilizr’s intelligent tools, designed to simplify compliance and accelerate growth.</p>
+        </div>
+    </section>
+
+    <!-- Section 4: Placeholder for Additional Content -->
+    <section id="section4" class="content-section reverse">
+        <div class="section-image">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;" aria-label="Case Management">
+                <source src="/assets/content_section/cases.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section-text">
+            <h2>Scale with <span>Confidence</span></h2>
+            <p>Mobilizr empowers your team to scale globally with confidence, ensuring compliance and efficiency at every step.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <video id="footer-logo-video" autoplay muted loop playsinline class="footer-logo-img">
+                    <source src="assets/logo.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Overview</h3>
+                    <a href="product.html">Product</a>
+                    <a href="team.html">Team</a>
+                    <a href="northvolt.html">Northvolt</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <a href="https://www.linkedin.com/company/mobilizr-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:team@mobilizr.eu">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>AI-Powered<br>Global Mobility</p>
+            </div>
+            <div class="footer-bottom-right">
+                <p>2025<br>All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for NeetoCal Scheduling -->
+    <div class="modal" id="scheduling-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-scheduling-modal">×</span>
+            <iframe 
+                src="https://mobilizr.neetocal.com/meeting-with-ella-karlsson" 
+                class="modal-iframe"
+                title="Schedule a meeting with Ella Karlsson"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>

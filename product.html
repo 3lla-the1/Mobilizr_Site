@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilizr - Product</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <!-- Main Navbar -->
+    <nav class="navbar sticky">
+        <div class="container navbar-container">
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html#hero" class="logo-link">
+                    <span class="navbar-logo-text">mobilizr</span>
+                    <img src="assets/logos/logo.png" alt="Mobilizr logo" class="navbar-logo-img fallback">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="product.html">Product</a>
+                <a href="team.html">Team</a>
+                <a href="northvolt.html">Northvolt</a>
+                <button class="get-started-btn" id="open-scheduling-modal">Meet us</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <video autoplay muted loop playsinline class="hero-background-video" aria-label="Faces of global mobility">
+            <source src="assets/product/faces.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Streamline Global <br> <span>Workforce Mobility</span></h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- What If Section -->
+    <section class="what-if-section">
+        <div class="container">
+            <h2 class="what-if-title">What If:</h2>
+            <div class="what-if-grid">
+                <div class="what-if-item">
+                    <p class="what-if-desc">Every work permit application was completed with confidence and speed</p>
+                </div>
+                <div class="what-if-item">
+                    <p class="what-if-desc">Questions around changing legal requirements were answered instantly</p>
+                </div>
+                <div class="what-if-item">
+                    <p class="what-if-desc">All stakeholders stayed in the loop with clear timelines and helpful reminders for fast approvals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <p class="intro-text">We serve ambitious companies scaling their teams, and the exceptional people they’re trying to hire. Our focus is on the HR teams, operations leads, and founders driving global growth and navigating the complexity of work permits for high skilled workforce. <br> <br>
+                Mobilizr is built for the very best. We design for high standards, fast execution, and impact. The companies we work with are building the future, and we build the tool that helps them do it faster, smoother, and with confidence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="demo-marquee-section">
+        <!-- Marquee stretches to screen edges -->
+        <div class="marquee-wrapper">
+            <div class="marquee" aria-label="Book a free demo">
+                <div class="marquee-content">
+                    <h1 class="marquee-text">
+                        Get in Motion · Get in Motion · Get in Motion · Get in Motion · Get in Motion · 
+                    </h1>
+                    <h1 class="marquee-text">
+                        Get in Motion · Get in Motion · Get in Motion · Get in Motion · Get in Motion · 
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Button stays centered within a container -->
+        <div class="container">
+            <div class="demo-button">
+                <button class="demo-cta" id="open-scheduling-modal">Book a meeting</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Program Section -->
+    <section class="pilot-program-section">
+        <div class="container">
+            <h2 class="pilot-program-title">Pilot Program</h2>
+            <div class="pilot-program-grid">
+                <div class="pilot-program-item">
+                    <h3>A. Workflow Deep-Dive</h3>
+                    <p class="pilot-program-desc">We’ll map your current hiring and permit process, and show where automation can unlock speed and clarity.</p>
+                </div>
+                <div class="pilot-program-item">
+                    <h3>B. Early Access + Onboarding</h3>
+                    <p class="pilot-program-desc">Get early access to Mobilizr, customized onboarding, and direct input into the roadmap.</p>
+                </div>
+                <div class="pilot-program-item">
+                    <h3>C. Impact and Iteration</h3>
+                    <p class="pilot-program-desc">Evaluation of time and resource savings followed by product iteration to meet your long-term needs.</p>
+                </div>
+            </div>
+            <div class="pilot-program-footer">
+                <p class="pilot-program-link">
+                    Curious about the details? <br> <a href="https://www.canva.com/design/DAGlMIKHjOY/PTxI-X-wgO-OeyZ8S8aK5Q/view?utm_content=DAGlMIKHjOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h22face713e" target="_blank">View our one-pager</a> and book a meeting or call for more information.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for NeetoCal Scheduling -->
+    <div class="modal" id="scheduling-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-scheduling-modal">×</span>
+            <iframe 
+                src="https://mobilizr.neetocal.com/meeting-with-ella-karlsson" 
+                class="modal-iframe"
+                title="Schedule a meeting with Ella Karlsson"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <video id="footer-logo-video" autoplay muted loop playsinline class="footer-logo-img">
+                    <source src="assets/logo.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Overview</h3>
+                    <a href="product.html">Product</a>
+                    <a href="team.html">Team</a>
+                    <a href="northvolt.html">Northvolt</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <a href="https://www.linkedin.com/company/mobilizr-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:team@mobilizr.eu">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>AI-Powered<br>Global Mobility</p>
+            </div>
+            <div class="footer-bottom-right">
+                <p>2025<br>All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/product.js"></script>
+</body>
+</html>
