@@ -8,10 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerLogoVideo = document.querySelector('#footer-logo-video');
     const heroVideo = document.querySelector('.hero-background-video');
 
-    // Disable autoplay on mobile
-    if (heroVideo && window.innerWidth <= 768) {
+    // Disable autoplay on mobile devices
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (heroVideo && isMobile) {
         heroVideo.removeAttribute('autoplay');
-        heroVideo.load(); // Ensure video is ready but not playing
+        heroVideo.load();
+    } else if (heroVideo) {
+        // Ensure video plays on desktop
+        heroVideo.addEventListener('loadeddata', () => {
+            heroVideo.play().catch(err => console.error('Video play failed:', err));
+        });
     }
 
     // Toggle hamburger menu

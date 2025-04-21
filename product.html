@@ -8,6 +8,7 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-CPDNR8FYFY');
+        console.log('GTM loaded successfully');
       } catch (e) {
         console.warn('GTM blocked or failed to load:', e);
       }
@@ -48,13 +49,12 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <picture class="mobile-only">
-            <source media="(max-width: 768px)" srcset="assets/product/faces-fallback.jpg">
-            <img src="assets/product/faces-fallback.jpg" alt="Hero background" class="hero-background-image">
+            <source media="(max-width: 768px)" srcset="assets/product/faces_fallback.png">
+            <img src="assets/product/faces_fallback.png" alt="Hero background" class="hero-background-image">
         </picture>
-        <video muted loop playsinline class="hero-background-video desktop-only" loading="lazy">
+        <video autoplay muted loop playsinline class="hero-background-video desktop-only">
             <source src="assets/product/faces.webm" type="video/webm">
-            <source src="assets/product/faces.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <p>Your browser does not support the video tag. Please view this page on a modern browser.</p>
         </video>
         <div class="hero-overlay"></div>
         <div class="container">
@@ -133,7 +133,7 @@
             </div>
             <div class="pilot-program-footer">
                 <p class="pilot-program-link">
-                    Curious about the details? <br> <a href="https://www.canva.com/design/DAGlMIKHjOY/PTxI-X-wgO-OeyZ8S8aK5Q/view?utm_content=DAGlMIKHjOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h22face713e" target="_blank">View our one-pager</a> and book a meeting or call for more information.
+                    Curious about the details? <br> <a href="https://www.canva.com/design/DAGlMIKHjOY/PTxI Ascertain5Q/view?utm_content=DAGlMIKHjOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h22face713e" target="_blank">View our one-pager</a> and book a meeting or call for more information.
                 </p>
             </div>
         </div>
