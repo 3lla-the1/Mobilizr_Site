@@ -79,14 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hamburger menu, modal, logo link, footer video setup (unchanged)
+    // Hamburger menu, modal, logo link, footer video setup
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    const openModalBtn = document.querySelector('#open-scheduling-modal');
-    const closeModalBtn = document.querySelector('#close-scheduling-modal');
     const modal = document.querySelector('#scheduling-modal');
     const logoLink = document.querySelector('.logo-link');
     const footerLogoVideo = document.querySelector('#footer-logo-video');
+    const iframe = document.querySelector('.modal-iframe');
 
     if (hamburger) {
         hamburger.addEventListener('click', () => {
@@ -106,24 +105,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (openModalBtn) {
-        openModalBtn.addEventListener('click', () => {
-            console.debug(`DEBUG: Modal button clicked at ${new Date().toISOString()}`);
-            modal.classList.add('active');
-            const iframe = document.querySelector('.modal-iframe');
-            if (!iframe.src) {
-                iframe.src = 'https://mobilizr.neetocal.com/meeting-with-ella-karlsson';
-                console.debug(`DEBUG: Modal opened, iframe src set at ${new Date().toISOString()}`);
-            }
-        });
+    // Modal opening function
+    const openModal = () => {
+        console.debug(`DEBUG: Modal button clicked at ${new Date().toISOString()}`);
+        modal.classList.add('active');
+        const iframe = document.querySelector('.modal-iframe');
+        if (!iframe.src) {
+            iframe.src = 'https://mobilizr.neetocal.com/meeting-with-ella-karlsson';
+            console.debug(`DEBUG: Modal opened, iframe src set at ${new Date().toISOString()}`);
+        }
+    };
+
+    // Attach event listeners to both buttons
+    const openModalBtnNav = document.querySelector('#open-scheduling-modal-nav');
+    const openModalBtnDemo = document.querySelector('#open-scheduling-modal-demo');
+
+    if (openModalBtnNav) {
+        openModalBtnNav.addEventListener('click', openModal);
+    }
+    if (openModalBtnDemo) {
+        openModalBtnDemo.addEventListener('click', openModal);
     }
 
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-            console.debug(`DEBUG: Modal closed via close button at ${new Date().toISOString()}`);
-        });
-    }
+    // Function to attach close button event listener
+    const attachCloseModalListener = () => {
+        const closeModalBtn = document.querySelector('#close-scheduling-modal');
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                console.debug(`DEBUG: Modal closed via close button at ${new Date().toISOString()}`);
+            });
+        }
+    };
+
+    // Call initially
+    attachCloseModalListener();
 
     if (modal) {
         modal.addEventListener('click', (e) => {
@@ -134,11 +150,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const iframe = document.querySelector('.modal-iframe');
     if (iframe) {
         iframe.addEventListener('error', () => {
             console.error(`DEBUG: Failed to load NeetoCal iframe at ${new Date().toISOString()}`);
-            modal.innerHTML = '<p>Sorry, the scheduling tool is unavailable. Please email us at <a href="mailto:team@mobilizr.eu">team@mobilizr.eu</a>.</p>';
+            const modalContent = document.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.innerHTML = `
+                    <span class="modal-close" id="close-scheduling-modal">×</span>
+                    <p style="padding: 20px; text-align: center; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                        Sorry, the scheduling tool is unavailable. Please email us at 
+                        <a href="mailto:team@mobilizr.eu" style="color: #000; text-decoration: underline;">team@mobilizr.eu</a>.
+                    </p>
+                `;
+                attachCloseModalListener(); // Reattach the event listener
+            }
+            // Fallback: Open in a new tab
+            window.open('https://mobilizr.neetocal.com/meeting-with-ella-karlsson', '_blank');
         });
     }
 
