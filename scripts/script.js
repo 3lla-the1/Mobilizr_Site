@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let current = 0;
 
     // Lazy-load videos using Intersection Observer
-    const videos = document.querySelectorAll('video');
+    const videos = document.querySelectorAll('.section-video, .footer-logo-video');
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -21,10 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             const video = entry.target;
+            const fallbackImg = video.querySelector('.video-fallback');
+            
             if (entry.isIntersecting) {
                 video.play().catch(error => {
                     console.log('Autoplay was prevented:', error);
-                    setTimeout(() => video.play(), 1000);
+                    // If video fails to play, show the fallback image
+                    video.style.display = 'none';
+                    if (fallbackImg) {
+                        fallbackImg.style.display = 'block';
+                    }
                 });
             } else {
                 video.pause();
@@ -32,15 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
+    // Add error handling for videos
     videos.forEach(video => {
+        const fallbackImg = video.querySelector('.video-fallback');
+        
+        // Handle video errors (e.g., unsupported format or network issues)
+        video.addEventListener('error', (e) => {
+            console.error('Video failed to load:', e);
+            video.style.display = 'none';
+            if (fallbackImg) {
+                fallbackImg.style.display = 'block';
+            }
+        });
+
+        // Initially hide the fallback image
+        if (fallbackImg) {
+            fallbackImg.style.display = 'none';
+        }
+
+        // Observe the video for intersection
         videoObserver.observe(video);
     });
 
-    // Remove the specific video play code for section1 since we're handling all videos
-    // const video = document.querySelector('#section1 video');
-    // if (video) { ... }
-
-    // Rest of your script remains the same
     const updateSlides = () => {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
@@ -103,8 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionTitle.textContent = sectionTitles[currentSection] || 'Work Permit Engine';
     };
 
-    
-
     const throttle = (func, limit) => {
         let inThrottle;
         return function(...args) {
@@ -118,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const throttledUpdateActiveSection = throttle(updateActiveSection, 100);
     window.addEventListener('scroll', throttledUpdateActiveSection);
-    
 
     indicators.forEach(indicator => {
         indicator.addEventListener('click', () => {

@@ -623,6 +623,65 @@ p {
     }
 }
 
+
+
+/* Add this to the existing style.css */
+
+/* Ensure videos and fallback images are styled consistently */
+.section-video,
+.footer-logo-video {
+    display: block;
+}
+
+.video-fallback {
+    display: none; /* Hidden by default, shown via JavaScript if video fails */
+}
+
+/* Update existing .content-section .section-image styles to ensure consistency */
+.content-section .section-image video,
+.content-section .section-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Update footer logo styles */
+.footer-logo-video,
+.footer-logo-video .video-fallback {
+    max-width: 70px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    cursor: pointer;
+}
+
+.footer-logo-video:hover,
+.footer-logo-video .video-fallback:hover {
+    opacity: 0.9;
+}
+
+/* Media query adjustments */
+@media (max-width: 1200px) {
+    .content-section .section-image video,
+    .content-section .section-image img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+        display: block;
+    }
+
+    .footer-logo-video,
+    .footer-logo-video .video-fallback {
+        max-width: 100px;
+    }
+}
+
 /* Media Queries */
 @media (max-width: 1200px) {
     .content-section {
