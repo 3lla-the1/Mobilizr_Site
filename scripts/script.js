@@ -10,21 +10,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('#scheduling-modal');
     let current = 0;
 
-    const video = document.querySelector('#section1 video');
-    if (video) {
-        video.play().catch(error => {
-            console.log('Autoplay was prevented:', error);
-            setTimeout(() => video.play(), 1000);
-        });
+    // Lazy-load videos using Intersection Observer
+    const videos = document.querySelectorAll('video');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                video.play();
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.play().catch(error => {
+                    console.log('Autoplay was prevented:', error);
+                    setTimeout(() => video.play(), 1000);
+                });
+            } else {
+                video.pause();
             }
         });
-    }
+    }, observerOptions);
 
-    // Function to update slideshow and dots
+    videos.forEach(video => {
+        videoObserver.observe(video);
+    });
+
+    // Remove the specific video play code for section1 since we're handling all videos
+    // const video = document.querySelector('#section1 video');
+    // if (video) { ... }
+
+    // Rest of your script remains the same
     const updateSlides = () => {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
@@ -32,13 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         dots[current].classList.add('active');
     };
 
-    // Automatic slideshow
     setInterval(() => {
         current = (current + 1) % slides.length;
         updateSlides();
     }, 3000);
 
-    // Click on dots
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
             current = parseInt(dot.getAttribute('data-slide'));
@@ -46,13 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Toggle hamburger menu and cross
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
 
-    // Close menu when clicking a link or button
     navLinks.querySelectorAll('a, .get-started-btn').forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -60,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Feature nav code
     const indicators = document.querySelectorAll('.indicator');
     const sectionTitle = document.querySelector('.section-title');
     const sections = document.querySelectorAll('.content-section');
@@ -92,8 +103,22 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionTitle.textContent = sectionTitles[currentSection] || 'Work Permit Engine';
     };
 
-    updateActiveSection();
-    window.addEventListener('scroll', updateActiveSection);
+    
+
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    };
+    
+    const throttledUpdateActiveSection = throttle(updateActiveSection, 100);
+    window.addEventListener('scroll', throttledUpdateActiveSection);
+    
 
     indicators.forEach(indicator => {
         indicator.addEventListener('click', () => {
@@ -103,48 +128,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle logo click to navigate to index.html#hero
     logoLink.addEventListener('click', (e) => {
         e.preventDefault();
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         if (currentPath === 'index.html') {
-            // If already on index.html, scroll to hero section
             const heroSection = document.getElementById('hero');
             if (heroSection) {
                 heroSection.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
-            // Navigate to index.html#hero
             window.location.href = 'index.html#hero';
         }
     });
 
-    // Handle footer video click to navigate to index.html#hero
     footerLogoVideo.addEventListener('click', () => {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         if (currentPath === 'index.html') {
-            // If already on index.html, scroll to hero section
             const heroSection = document.getElementById('hero');
             if (heroSection) {
                 heroSection.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
-            // Navigate to index.html#hero
             window.location.href = 'index.html#hero';
         }
     });
 
-    // Open modal when "Meet us" button is clicked
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('active');
     });
 
-    // Close modal when close button is clicked
     closeModalBtn.addEventListener('click', () => {
         modal.classList.remove('active');
     });
 
-    // Close modal when clicking outside the modal content
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.remove('active');
