@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('#scheduling-modal');
     const logoLink = document.querySelector('.logo-link');
     const footerLogoVideo = document.querySelector('#footer-logo-video');
+    const heroVideo = document.querySelector('.hero-background-video');
+
+    // Disable autoplay on mobile
+    if (heroVideo && window.innerWidth <= 768) {
+        heroVideo.removeAttribute('autoplay');
+        heroVideo.load(); // Ensure video is ready but not playing
+    }
 
     // Toggle hamburger menu
     hamburger.addEventListener('click', () => {
@@ -21,9 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Open modal when "Meet us" or "Book a meeting" button is clicked
+    // Open modal and lazy-load iframe
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('active');
+        const iframe = document.querySelector('.modal-iframe');
+        if (!iframe.src) {
+            iframe.src = 'https://mobilizr.neetocal.com/meeting-with-ella-karlsson';
+        }
     });
 
     // Close modal when close button is clicked
@@ -38,18 +49,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Handle iframe errors
+    const iframe = document.querySelector('.modal-iframe');
+    iframe.addEventListener('error', () => {
+        console.error('Failed to load NeetoCal iframe');
+        modal.innerHTML = '<p>Sorry, the scheduling tool is unavailable. Please email us at <a href="mailto:team@mobilizr.eu">team@mobilizr.eu</a>.</p>';
+    });
+
     // Handle logo click to navigate to index.html#hero
     logoLink.addEventListener('click', (e) => {
         e.preventDefault();
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         if (currentPath === 'index.html') {
-            // If already on index.html, scroll to hero section
             const heroSection = document.getElementById('hero');
             if (heroSection) {
                 heroSection.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
-            // Navigate to index.html#hero
             window.location.href = 'index.html#hero';
         }
     });
@@ -58,13 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
     footerLogoVideo.addEventListener('click', () => {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         if (currentPath === 'index.html') {
-            // If already on index.html, scroll to hero section
             const heroSection = document.getElementById('hero');
             if (heroSection) {
                 heroSection.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
-            // Navigate to index.html#hero
             window.location.href = 'index.html#hero';
         }
     });

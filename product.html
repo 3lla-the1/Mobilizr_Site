@@ -3,10 +3,14 @@
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPDNR8FYFY"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CPDNR8FYFY');
+      try {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CPDNR8FYFY');
+      } catch (e) {
+        console.warn('GTM blocked or failed to load:', e);
+      }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +18,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/product.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.7.0/dist/lottie-player.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
 </head>
 <body>
@@ -43,8 +47,13 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <video autoplay muted loop playsinline class="hero-background-video" aria-label="Faces of global mobility">
+        <picture class="mobile-only">
+            <source media="(max-width: 768px)" srcset="assets/product/faces-fallback.jpg">
+            <img src="assets/product/faces-fallback.jpg" alt="Hero background" class="hero-background-image">
+        </picture>
+        <video muted loop playsinline class="hero-background-video desktop-only" loading="lazy">
             <source src="assets/product/faces.webm" type="video/webm">
+            <source src="assets/product/faces.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay"></div>
@@ -85,7 +94,6 @@
 
     <!-- Marquee Section -->
     <section class="demo-marquee-section">
-        <!-- Marquee stretches to screen edges -->
         <div class="marquee-wrapper">
             <div class="marquee" aria-label="Book a free demo">
                 <div class="marquee-content">
@@ -98,7 +106,6 @@
                 </div>
             </div>
         </div>
-        <!-- Button stays centered within a container -->
         <div class="container">
             <div class="demo-button">
                 <button class="demo-cta" id="open-scheduling-modal">Book a meeting</button>
@@ -137,7 +144,6 @@
         <div class="modal-content">
             <span class="modal-close" id="close-scheduling-modal">×</span>
             <iframe 
-                src="https://mobilizr.neetocal.com/meeting-with-ella-karlsson" 
                 class="modal-iframe"
                 title="Schedule a meeting with Ella Karlsson"
                 frameborder="0"
