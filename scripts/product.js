@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Debug: Log page load start with timestamp
     console.debug(`DEBUG: Page load started at ${new Date().toISOString()}`);
 
-    // Debug: Log device details
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     console.debug(`DEBUG: Device details at ${new Date().toISOString()}`, {
         userAgent: navigator.userAgent,
@@ -11,44 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
         isMobile: isMobile
     });
 
-    // Debug: Log memory usage if available
-    if (performance.memory) {
-        console.debug(`DEBUG: Initial memory usage at ${new Date().toISOString()}`, {
-            jsHeapSizeLimit: performance.memory.jsHeapSizeLimit,
-            totalJSHeapSize: performance.memory.totalJSHeapSize,
-            usedJSHeapSize: performance.memory.usedJSHeapSize
-        });
-    }
-
-    // Debug: Checkpoint before DOM queries
-    console.debug(`DEBUG: Querying DOM elements at ${new Date().toISOString()}`);
-
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const openModalBtn = document.querySelector('#open-scheduling-modal');
-    const closeModalBtn = document.querySelector('#close-scheduling-modal');
-    const modal = document.querySelector('#scheduling-modal');
-    const logoLink = document.querySelector('.logo-link');
-    const footerLogoVideo = document.querySelector('#footer-logo-video');
     const heroVideo = document.querySelector('.hero-background-video');
     const fallbackImage = document.querySelector('.hero-background-image');
-
-    // Debug: Log video and image elements
     console.debug(`DEBUG: Hero video element exists at ${new Date().toISOString()}:`, !!heroVideo);
     console.debug(`DEBUG: Fallback image element exists at ${new Date().toISOString()}:`, !!fallbackImage);
-    console.debug(`DEBUG: Modal button element exists at ${new Date().toISOString()}:`, !!openModalBtn);
 
-    // Debug: Check video element styles, attributes, and sources
-    if (heroVideo) {
-        const computedStyle = window.getComputedStyle(heroVideo);
+    if (isMobile && heroVideo) {
+        console.debug(`DEBUG: Mobile device detected, skipping video processing at ${new Date().toISOString()}`);
+        const videoSources = heroVideo.querySelectorAll('source');
+        videoSources.forEach(source => {
+            source.src = '';
+        });
+        heroVideo.load();
+        heroVideo.remove();
+        console.debug(`DEBUG: Hero video element removed from DOM at ${new Date().toISOString()}`);
+    } else if (heroVideo) {
         console.debug(`DEBUG: Hero video computed styles at ${new Date().toISOString()}`, {
-            display: computedStyle.display,
-            visibility: computedStyle.visibility
+            display: window.getComputedStyle(heroVideo).display,
+            visibility: window.getComputedStyle(heroVideo).visibility
         });
         console.debug(`DEBUG: Hero video attributes at ${new Date().toISOString()}`, {
             src: heroVideo.src,
             currentSrc: heroVideo.currentSrc,
-            autoplay: heroVideo.hasAttribute('autoplay'),
             muted: heroVideo.muted,
             loop: heroVideo.loop,
             playsinline: heroVideo.playsInline,
@@ -56,43 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
             readyState: heroVideo.readyState
         });
 
-        // Debug: Log video source elements
         const videoSources = heroVideo.querySelectorAll('source');
         console.debug(`DEBUG: Hero video sources at ${new Date().toISOString()}`, Array.from(videoSources).map(s => ({
             src: s.src,
             type: s.type
         })));
 
-        // Debug: Additional video events
-        heroVideo.addEventListener('loadedmetadata', () => {
-            console.debug(`DEBUG: Hero video metadata loaded at ${new Date().toISOString()}, currentSrc: ${heroVideo.currentSrc}`);
-        });
         heroVideo.addEventListener('loadeddata', () => {
             console.debug(`DEBUG: Hero video loaded successfully at ${new Date().toISOString()}, currentSrc: ${heroVideo.currentSrc}`);
-        });
-        heroVideo.addEventListener('canplay', () => {
-            console.debug(`DEBUG: Hero video can play at ${new Date().toISOString()}, currentSrc: ${heroVideo.currentSrc}`);
-        });
-        heroVideo.addEventListener('stalled', () => {
-            console.error(`DEBUG: Hero video stalled at ${new Date().toISOString()}, currentSrc: ${heroVideo.currentSrc}`);
+            heroVideo.play().catch(err => {
+                console.error(`DEBUG: Video play failed at ${new Date().toISOString()}:`, err);
+            });
         });
         heroVideo.addEventListener('error', (e) => {
             console.error(`DEBUG: Hero video error at ${new Date().toISOString()}:`, e);
         });
-        heroVideo.addEventListener('play', () => {
-            console.debug(`DEBUG: Hero video play started at ${new Date().toISOString()}`);
-        });
-        heroVideo.addEventListener('pause', () => {
-            console.debug(`DEBUG: Hero video paused at ${new Date().toISOString()}`);
-        });
 
-        // Debug: Check if video is attempted to load on mobile
-        if (isMobile) {
-            console.debug(`DEBUG: Hero video detected on mobile, should not load at ${new Date().toISOString()}`);
-        }
-
-        // Debug: Observe video element mutations
+        let lastMutation = 0;
         const videoObserver = new MutationObserver((mutations) => {
+            const now = Date.now();
+            if (now - lastMutation < 100) return;
+            lastMutation = now;
             mutations.forEach(m => {
                 console.debug(`DEBUG: Hero video mutation at ${new Date().toISOString()}`, {
                     attributeName: m.attributeName,
@@ -104,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         videoObserver.observe(heroVideo, { attributes: true, attributeOldValue: true });
     }
 
-    // Debug: Handle fallback image loading
     if (fallbackImage) {
         fallbackImage.addEventListener('load', () => {
             console.debug(`DEBUG: Fallback image loaded successfully at ${new Date().toISOString()}`);
@@ -114,27 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Debug: Checkpoint before video autoplay handling
-    console.debug(`DEBUG: Handling video autoplay at ${new Date().toISOString()}`);
+    // Hamburger menu, modal, logo link, footer video setup (unchanged)
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const openModalBtn = document.querySelector('#open-scheduling-modal');
+    const closeModalBtn = document.querySelector('#close-scheduling-modal');
+    const modal = document.querySelector('#scheduling-modal');
+    const logoLink = document.querySelector('.logo-link');
+    const footerLogoVideo = document.querySelector('#footer-logo-video');
 
-    // Disable autoplay on mobile devices
-    if (heroVideo && isMobile) {
-        heroVideo.removeAttribute('autoplay');
-        heroVideo.load();
-        console.debug(`DEBUG: Autoplay removed for hero video on mobile at ${new Date().toISOString()}, paused: ${heroVideo.paused}`);
-    } else if (heroVideo) {
-        // Ensure video plays on desktop
-        heroVideo.addEventListener('loadeddata', () => {
-            heroVideo.play().catch(err => {
-                console.error(`DEBUG: Video play failed at ${new Date().toISOString()}:`, err);
-            });
-        });
-    }
-
-    // Debug: Checkpoint before hamburger menu setup
-    console.debug(`DEBUG: Setting up hamburger menu at ${new Date().toISOString()}`);
-
-    // Toggle hamburger menu
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -143,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close menu when clicking a link or button
     if (navLinks) {
         navLinks.querySelectorAll('a, .get-started-btn').forEach(item => {
             item.addEventListener('click', () => {
@@ -154,12 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Debug: Checkpoint before modal setup
-    console.debug(`DEBUG: Setting up modal button at ${new Date().toISOString()}`);
-
-    // Open modal and lazy-load iframe
     if (openModalBtn) {
-        console.debug(`DEBUG: Registering modal button listener at ${new Date().toISOString()}`);
         openModalBtn.addEventListener('click', () => {
             console.debug(`DEBUG: Modal button clicked at ${new Date().toISOString()}`);
             modal.classList.add('active');
@@ -171,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close modal when close button is clicked
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
             modal.classList.remove('active');
@@ -179,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close modal when clicking outside the modal content
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -187,21 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.debug(`DEBUG: Modal closed via outside click at ${new Date().toISOString()}`);
             }
         });
-
-        // Debug: Observe modal mutations
-        const modalObserver = new MutationObserver((mutations) => {
-            mutations.forEach(m => {
-                console.debug(`DEBUG: Modal mutation at ${new Date().toISOString()}`, {
-                    attributeName: m.attributeName,
-                    oldValue: m.oldValue,
-                    newValue: m.target.getAttribute(m.attributeName)
-                });
-            });
-        });
-        modalObserver.observe(modal, { attributes: true, attributeOldValue: true });
     }
 
-    // Handle iframe errors
     const iframe = document.querySelector('.modal-iframe');
     if (iframe) {
         iframe.addEventListener('error', () => {
@@ -210,10 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Debug: Checkpoint before logo link setup
-    console.debug(`DEBUG: Setting up logo link at ${new Date().toISOString()}`);
-
-    // Handle logo click to navigate to index.html#hero
     if (logoLink) {
         logoLink.addEventListener('click', (e) => {
             e.preventDefault();
@@ -231,10 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Debug: Checkpoint before footer video setup
-    console.debug(`DEBUG: Setting up footer video at ${new Date().toISOString()}`);
-
-    // Handle footer video click to navigate to index.html#hero
     if (footerLogoVideo) {
         footerLogoVideo.addEventListener('click', () => {
             const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -251,45 +175,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Debug: Log DOM content loaded completion
     console.debug(`DEBUG: DOM content loaded completed at ${new Date().toISOString()}`);
 });
 
-// Debug: Log window load completion
 window.addEventListener('load', () => {
     console.debug(`DEBUG: Window fully loaded at ${new Date().toISOString()}`);
-    // Debug: Log loaded resources
-    const resources = performance.getEntriesByType('resource');
-    console.debug(`DEBUG: Loaded resources at ${new Date().toISOString()}`, resources.map(r => ({
-        name: r.name,
-        initiatorType: r.initiatorType,
-        duration: r.duration
-    })));
 });
 
-// Debug: Periodic memory check
-if (performance.memory) {
+if (performance.memory && !window.matchMedia('(max-width: 768px)').matches) {
     setInterval(() => {
         console.debug(`DEBUG: Memory usage check at ${new Date().toISOString()}`, {
             jsHeapSizeLimit: performance.memory.jsHeapSizeLimit,
             totalJSHeapSize: performance.memory.totalJSHeapSize,
             usedJSHeapSize: performance.memory.usedJSHeapSize
         });
-    }, 5000); // Check every 5 seconds
+    }, 10000);
 }
 
-// Debug: Catch unhandled errors
 window.addEventListener('error', (e) => {
     console.error(`DEBUG: Unhandled error at ${new Date().toISOString()}:`, {
         message: e.message,
         filename: e.filename,
         lineno: e.lineno,
-        colno: e.colno,
-        error: e.error
+        colno: e.colno
     });
 });
 
-// Debug: Catch unhandled promise rejections
 window.addEventListener('unhandledrejection', (e) => {
     console.error(`DEBUG: Unhandled promise rejection at ${new Date().toISOString()}:`, {
         reason: e.reason
